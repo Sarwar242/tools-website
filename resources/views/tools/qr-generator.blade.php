@@ -222,5 +222,49 @@ function shareQR() {
         });
     }
 }
+
+// Advanced QR Generator
+async function generateAdvancedQR() {
+    const form = document.getElementById('qrForm');
+    const formData = new FormData(form);
+    
+    // Add advanced options
+    formData.append('format', 'svg');
+    formData.append('error_correction', 'M');
+    formData.append('margin', '10');
+    formData.append('foreground_color', '#000000');
+    formData.append('background_color', '#ffffff');
+    
+    const submitBtn = form.querySelector('button[type="submit"]');
+    window.QRGenerator.setLoading(submitBtn, true);
+    
+    try {
+        const response = await fetch('/tools/qr-generator/advanced', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success && data.qr_code) {
+            console.log('Advanced QR Code received:', data.qr_code.substring(0, 100) + '...');
+            document.getElementById('qrPreview').innerHTML = data.qr_code;
+            document.getElementById('downloadSection').classList.remove('hidden');
+            window.currentQrData = data;
+            window.ThemeManager.showNotification('Advanced QR Code generated successfully!', 'success');
+        } else {
+            console.error('Advanced QR Generation failed:', data);
+            window.ThemeManager.showNotification(data.error || 'Error generating QR code', 'error');
+        }
+    } catch (error) {
+        console.error('Advanced QR Generation error:', error);
+        window.ThemeManager.showNotification('Network error occurred', 'error');
+    } finally {
+        window.QRGenerator.setLoading(submitBtn, false);
+    }
+}
 </script>
 @endsection

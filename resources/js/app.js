@@ -132,11 +132,28 @@ window.QRGenerator = {
             
             const data = await response.json();
             
+            console.log('Full QR Response:', data);
+            
             if (data.success && data.qr_code) {
-                console.log('QR Code received:', data.qr_code.substring(0, 100) + '...');
-                document.getElementById('qrPreview').innerHTML = data.qr_code;
-                document.getElementById('downloadSection').classList.remove('hidden');
-                window.currentQrData = data; // Store globally for download functions
+                console.log('QR Code type:', typeof data.qr_code);
+                console.log('QR Code length:', data.qr_code.length);
+                console.log('QR Code preview:', data.qr_code.substring(0, 200));
+                
+                const previewElement = document.getElementById('qrPreview');
+                if (previewElement) {
+                    previewElement.innerHTML = data.qr_code;
+                    console.log('QR Code inserted, preview content:', previewElement.innerHTML.substring(0, 200));
+                } else {
+                    console.error('qrPreview element not found!');
+                }
+                
+                const downloadSection = document.getElementById('downloadSection');
+                if (downloadSection) {
+                    downloadSection.classList.remove('hidden');
+                    console.log('Download section shown');
+                }
+                
+                window.currentQrData = data;
                 window.ThemeManager.showNotification('QR Code generated successfully!', 'success');
             } else {
                 console.error('QR Generation failed:', data);
