@@ -80,11 +80,16 @@ class ToolsController extends Controller
         }
 
         try {
-            // Generate QR code as SVG
+            // Generate QR code as SVG with better styling
             $qrCode = QrCode::size($size)
                             ->format('svg')
+                            ->margin(1)
+                            ->errorCorrection('M')
                             ->generate($data);
 
+            // Clean the SVG and ensure it displays properly
+            $cleanSvg = str_replace(['<?xml version="1.0" encoding="UTF-8"?>', "\n", "\r"], '', $qrCode);
+            
             // Log usage
             $this->logToolUsage('qr_generator', $request, [
                 'type' => $type,
@@ -94,7 +99,8 @@ class ToolsController extends Controller
 
             return response()->json([
                 'success' => true,
-                'qr_code' => $qrCode,
+                'qr_code' => $cleanSvg,
+                'original_data' => $data,
                 'type' => $type,
                 'size' => $size
             ]);

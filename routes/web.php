@@ -14,6 +14,7 @@ Route::prefix('tools')->name('tools.')->group(function () {
     // QR Code Generator
     Route::get('/qr-generator', [ToolsController::class, 'qrGenerator'])->name('qr-generator');
     Route::post('/qr-generator', [ToolsController::class, 'generateQr'])->name('generate-qr');
+    Route::post('/qr-generator/advanced', [App\Http\Controllers\QRController::class, 'generateAdvanced'])->name('generate-qr-advanced');
     
     // URL Shortener
     Route::get('/url-shortener', [ToolsController::class, 'urlShortener'])->name('url-shortener');
@@ -21,6 +22,12 @@ Route::prefix('tools')->name('tools.')->group(function () {
     
     // URL Analytics (for future feature)
     Route::get('/url-analytics/{code}', [ToolsController::class, 'urlAnalytics'])->name('url-analytics');
+});
+
+// Theme Routes
+Route::prefix('theme')->name('theme.')->group(function () {
+    Route::post('/switch', [App\Http\Controllers\ThemeController::class, 'switch'])->name('switch');
+    Route::post('/color', [App\Http\Controllers\ThemeController::class, 'changeColor'])->name('color');
 });
 
 // Short URL redirect

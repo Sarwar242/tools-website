@@ -1,11 +1,88 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Custom Theme Variables */
+:root {
+  --primary: theme('colors.primary.500');
+  --primary-hover: theme('colors.primary.600');
+  --primary-dark: theme('colors.primary.700');
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.dark {
+  --primary: theme('colors.primary.400');
+  --primary-hover: theme('colors.primary.300');
+  --primary-dark: theme('colors.primary.500');
+}
+
+/* Custom Components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-outline-primary {
+    @apply border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700;
+  }
+  
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:border-primary-500 focus:ring-primary-500;
+  }
+  
+  .theme-switcher {
+    @apply fixed top-5 right-5 z-50 flex gap-2 bg-white dark:bg-gray-800 p-2 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg;
+  }
+  
+  .theme-btn {
+    @apply w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700;
+  }
+  
+  .theme-btn.active {
+    @apply bg-primary-500 text-white hover:bg-primary-600;
+  }
+  
+  .notification {
+    @apply fixed top-5 right-20 z-50 min-w-80 p-3 rounded-lg text-white font-medium shadow-lg transform translate-x-96 transition-transform duration-300;
+  }
+  
+  .notification.show {
+    @apply translate-x-0;
+  }
+  
+  .notification.success {
+    @apply bg-green-500;
+  }
+  
+  .notification.error {
+    @apply bg-red-500;
+  }
+  
+  .notification.warning {
+    @apply bg-yellow-500;
+  }
+  
+  .notification.info {
+    @apply bg-blue-500;
+  }
+  
+  .tool-card {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .loading {
+    @apply opacity-50 pointer-events-none;
+  }
+  
+  .spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 }

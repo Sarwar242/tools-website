@@ -1,319 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Free Online Tools - QR Generator & URL Shortener')</title>
-    <meta name="description" content="@yield('description', 'Free online tools for QR code generation and URL shortening. Fast, secure, and easy to use. No registration required.')">
-    <meta name="keywords" content="@yield('keywords', 'QR code generator, URL shortener, free online tools, QR maker, short links')">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    
+    <title>@yield('title', 'ToolHub - Free Online Tools')</title>
+    <meta name="description" content="@yield('description', 'Free online tools for developers and professionals. QR code generator, URL shortener, and more useful utilities.')">
+    <meta name="keywords" content="@yield('keywords', 'online tools, free tools, QR code generator, URL shortener, web utilities')">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="@yield('title', 'Free Online Tools')">
-    <meta property="og:description" content="@yield('description', 'Free QR codes and URL shortener')">
+    <meta property="og:title" content="@yield('title', 'ToolHub - Free Online Tools')">
+    <meta property="og:description" content="@yield('description', 'Free online tools for developers and professionals.')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request()->url() }}">
     
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6179890788485964"
+     crossorigin="anonymous"></script>
+    <!-- Vite CSS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --success-color: #059669;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color) !important;
-            font-size: 1.5rem;
-        }
-        
-        .main-container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            margin: 20px auto;
-            padding: 30px;
-            max-width: 1200px;
-        }
-        
-        .tool-card {
-            transition: all 0.3s ease;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            height: 100%;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-        
-        .tool-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border: none;
-            border-radius: 10px;
-            padding: 12px 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
-        }
-        
-        .stats-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            height: 100%;
-        }
-        
-        .stats-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Ad zones - optimized for AdSense */
-        .ad-zone {
-            background: linear-gradient(45deg, #f8fafc, #e2e8f0);
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin: 25px 0;
-            min-height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ad-zone::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .ad-zone.horizontal {
-            min-height: 100px;
-            max-width: 728px;
-            margin: 25px auto;
-        }
-        
-        .loading {
-            display: none;
-        }
-        
-        .loading.active {
-            display: inline-block;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .main-container {
-                margin: 10px;
-                padding: 20px;
-                border-radius: 15px;
-            }
-            
-            .tool-icon {
-                font-size: 2.5rem;
-            }
-            
-            .stats-number {
-                font-size: 2rem;
-            }
-            
-            .ad-zone.horizontal {
-                min-height: 60px;
-            }
-        }
-    </style>
-    
-    <!-- Google AdSense - Replace with your publisher ID -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXX" crossorigin="anonymous"></script>
-    
-    @stack('styles')
+    @stack('head')
 </head>
-<body>
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button type="button" class="theme-btn" data-theme="light" title="Light Mode">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button type="button" class="theme-btn" data-theme="dark" title="Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('tools.dashboard') }}">
-                🔧 ToolHub
-            </a>
+    <nav class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{{ route('tools.dashboard') }}" class="flex items-center space-x-2 text-xl font-bold text-primary-500">
+                        <i class="fas fa-tools"></i>
+                        <span>ToolHub</span>
+                    </a>
+                    
+                    <div class="hidden md:flex ml-10 space-x-8">
+                        <a href="{{ route('tools.dashboard') }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                            <i class="fas fa-home"></i>
+                            <span>Tools</span>
+                        </a>
+                        <a href="{{ route('tools.qr-generator') }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QR Generator</span>
+                        </a>
+                        <a href="{{ route('tools.url-shortener') }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                            <i class="fas fa-link"></i>
+                            <span>URL Shortener</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center">
+                    <div class="relative">
+                        <button type="button" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors" onclick="toggleDropdown()">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="settingsDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="py-1">
+                                <div class="px-3 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase">Theme Color</div>
+                                <a href="#" data-color="green" class="flex items-center space-x-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                    <i class="fas fa-circle text-green-500"></i>
+                                    <span>Green</span>
+                                </a>
+                                <a href="#" data-color="blue" class="flex items-center space-x-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                    <i class="fas fa-circle text-blue-500"></i>
+                                    <span>Blue</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <button type="button" class="md:hidden ml-3 p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tools.dashboard') }}">
-                            <i class="bi bi-house"></i> Tools
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tools.qr-generator') }}">
-                            <i class="bi bi-qr-code"></i> QR Generator
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tools.url-shortener') }}">
-                            <i class="bi bi-link"></i> URL Shortener
-                        </a>
-                    </li>
-                </ul>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="{{ route('tools.dashboard') }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        <i class="fas fa-home"></i>
+                        <span>Tools</span>
+                    </a>
+                    <a href="{{ route('tools.qr-generator') }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QR Generator</span>
+                    </a>
+                    <a href="{{ route('tools.url-shortener') }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        <i class="fas fa-link"></i>
+                        <span>URL Shortener</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main style="padding-top: 80px;">
-        <div class="container-fluid">
-            <div class="main-container">
-                @if(session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <i class="bi bi-check-circle"></i> {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @endif
-                
-                @if(session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <i class="bi bi-exclamation-triangle"></i> {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                @endif
-                
-                @yield('content')
-            </div>
-        </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        @yield('content')
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4" style="background: rgba(255,255,255,0.1); color: white;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; {{ date('Y') }} ToolHub. Made with ❤️ for productivity.</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="#" class="text-white-50 text-decoration-none">Privacy</a>
-                        <a href="#" class="text-white-50 text-decoration-none">Terms</a>
-                        <a href="#" class="text-white-50 text-decoration-none">Contact</a>
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 text-xl font-bold text-primary-500 mb-4">
+                        <i class="fas fa-tools"></i>
+                        <span>ToolHub</span>
                     </div>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md">
+                        Free online tools for developers and professionals. Create QR codes, shorten URLs, and access more useful utilities.
+                    </p>
                 </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li><a href="{{ route('tools.qr-generator') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">QR Code Generator</a></li>
+                        <li><a href="{{ route('tools.url-shortener') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">URL Shortener</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <p class="text-center text-gray-600 dark:text-gray-400">
+                    &copy; {{ date('Y') }} ToolHub. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
-    <!-- Global Scripts -->
     <script>
-        // CSRF Token setup
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        function toggleDropdown() {
+            const dropdown = document.getElementById('settingsDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('settingsDropdown');
+            const button = event.target.closest('button');
+            if (!button || button.onclick !== toggleDropdown) {
+                dropdown.classList.add('hidden');
             }
         });
-        
-        // Track events (replace with your analytics)
-        function trackEvent(category, action, label) {
-            // Google Analytics 4
-            if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    event_category: category,
-                    event_label: label
-                });
-            }
-            
-            // Console log for development
-            console.log('Event:', category, action, label);
-        }
-        
-        // Initialize AdSense ads
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        
-        // Loading state helper
-        function setLoading(element, state) {
-            const btn = $(element);
-            const loading = btn.find('.loading');
-            
-            if (state) {
-                btn.prop('disabled', true);
-                loading.addClass('active');
-            } else {
-                btn.prop('disabled', false);
-                loading.removeClass('active');
-            }
-        }
-        
-        // Notification helper
-        function showNotification(message, type = 'success') {
-            const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
-            const icon = type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle';
-            
-            const alert = $(`
-                <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
-                    <i class="bi ${icon}"></i> ${message}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-            `);
-            
-            $('.main-container').prepend(alert);
-            
-            // Auto dismiss after 5 seconds
-            setTimeout(() => {
-                alert.alert('close');
-            }, 5000);
-        }
     </script>
     
     @stack('scripts')
