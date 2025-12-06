@@ -46,7 +46,12 @@ jobs:
           # Create SQLite database file if using SQLite
           mkdir -p database
           touch database/database.sqlite
+          # Set proper permissions for storage and bootstrap cache
+          chmod -R 755 storage/
+          chmod -R 755 bootstrap/cache/
           # Run migrations to create required tables
           php artisan migrate --force --no-interaction
           # Clear caches (now that database tables exist)
           php artisan optimize:clear
+          # Remove diagnostic files for security
+          rm -f public/info.php public/test.php
