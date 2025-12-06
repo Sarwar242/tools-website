@@ -28,4 +28,11 @@ jobs:
           # Add your commands here
           echo "Running additional commands after deployment"
           composer dump-autoload
+          # Set up environment for deployment without database dependency
+          cp .env.example .env
+          php artisan key:generate --ansi
+          # Create SQLite database file if using SQLite
+          mkdir -p database
+          touch database/database.sqlite
+          # Clear caches
           php artisan optimize:clear
