@@ -14,6 +14,18 @@ jobs:
 
       - name: Install Composer Dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
         
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
