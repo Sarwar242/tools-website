@@ -46,5 +46,7 @@ jobs:
           # Create SQLite database file if using SQLite
           mkdir -p database
           touch database/database.sqlite
-          # Clear caches
+          # Run migrations to create required tables
+          php artisan migrate --force --no-interaction
+          # Clear caches (now that database tables exist)
           php artisan optimize:clear
