@@ -1,16 +1,9 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
-    # Options directive moved outside mod_negotiation for better cPanel compatibility
-    Options -MultiViews -Indexes
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    # Handle X-XSRF-Token Header
-    RewriteCond %{HTTP:x-xsrf-token} .
-    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -21,16 +14,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-</IfModule>
-
-# Fix 403 Forbidden - Allow access to this directory
-<IfModule mod_authz_core.c>
-    # Apache 2.4+
-    Require all granted
-</IfModule>
-
-<IfModule !mod_authz_core.c>
-    # Apache 2.2
-    Order allow,deny
-    Allow from all
 </IfModule>
