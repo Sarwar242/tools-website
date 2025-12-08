@@ -6,6 +6,9 @@ use App\Http\Controllers\ToolsController;
 // Main landing page - redirect to tools dashboard
 Route::get('/', [ToolsController::class, 'dashboard']);
 
+// About page
+Route::view('/about', 'about')->name('about');
+
 // Tools routes
 Route::prefix('tools')->name('tools.')->group(function () {
     // Dashboard - all tools
@@ -22,6 +25,24 @@ Route::prefix('tools')->name('tools.')->group(function () {
     
     // URL Analytics (for future feature)
     Route::get('/url-analytics/{code}', [ToolsController::class, 'urlAnalytics'])->name('url-analytics');
+    
+    // JSON Formatter
+    Route::get('/json-formatter', [ToolsController::class, 'jsonFormatter'])->name('json-formatter');
+    
+    // Password Generator
+    Route::get('/password-generator', [ToolsController::class, 'passwordGenerator'])->name('password-generator');
+    
+    // Base64 Encoder/Decoder
+    Route::get('/base64-encoder', [ToolsController::class, 'base64Encoder'])->name('base64-encoder');
+    
+    // Hash Generator
+    Route::get('/hash-generator', [ToolsController::class, 'hashGenerator'])->name('hash-generator');
+    
+    // Text Case Converter
+    Route::get('/text-case-converter', [ToolsController::class, 'textCaseConverter'])->name('text-case-converter');
+    
+    // Sitemap Generator
+    Route::get('/sitemap-generator', [ToolsController::class, 'sitemapGenerator'])->name('sitemap-generator');
 });
 
 // Theme Routes

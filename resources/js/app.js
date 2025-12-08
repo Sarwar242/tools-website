@@ -9,18 +9,15 @@ window.ThemeManager = {
     },
     
     bindEvents() {
-        // Theme switcher buttons
-        document.addEventListener('click', (e) => {
-            if (e.target.matches('[data-theme]')) {
-                const theme = e.target.dataset.theme;
-                this.switchTheme(theme);
-            }
-            
-            if (e.target.matches('[data-color]')) {
-                const color = e.target.dataset.color;
-                this.changeColor(color);
-            }
-        });
+        // Single theme toggle button
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        if (themeSwitcher) {
+            themeSwitcher.addEventListener('click', () => {
+                const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                this.switchTheme(newTheme);
+            });
+        }
     },
     
     loadTheme() {
@@ -32,7 +29,7 @@ window.ThemeManager = {
         this.applyTheme(theme);
         localStorage.setItem('theme', theme);
         
-        // Update server session
+        // Optional: Update server session (can be removed if not needed)
         fetch('/theme/switch', {
             method: 'POST',
             headers: {
@@ -40,13 +37,7 @@ window.ThemeManager = {
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
             },
             body: JSON.stringify({ theme })
-        }).then(response => response.json())
-          .then(data => {
-              if (data.success) {
-                  this.showNotification(`Switched to ${theme} mode`, 'success');
-              }
-          })
-          .catch(error => console.error('Theme switch error:', error));
+        }).catch(error => console.error('Theme switch error:', error));
     },
     
     applyTheme(theme) {
@@ -55,11 +46,6 @@ window.ThemeManager = {
         } else {
             document.documentElement.classList.remove('dark');
         }
-        
-        // Update active button
-        document.querySelectorAll('[data-theme]').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.theme === theme);
-        });
     },
     
     changeColor(color) {
@@ -135,22 +121,28 @@ window.QRGenerator = {
             console.log('Full QR Response:', data);
             
             if (data.success && data.qr_code) {
-                console.log('QR Code type:', typeof data.qr_code);
-                console.log('QR Code length:', data.qr_code.length);
-                console.log('QR Code preview:', data.qr_code.substring(0, 200));
-                
                 const previewElement = document.getElementById('qrPreview');
-                if (previewElement) {
-                    previewElement.innerHTML = data.qr_code;
-                    console.log('QR Code inserted, preview content:', previewElement.innerHTML.substring(0, 200));
-                } else {
-                    console.error('qrPreview element not found!');
+                const placeholder = document.getElementById('qrPlaceholder');
+                
+                // Remove placeholder if exists
+                if (placeholder) placeholder.remove();
+                
+                // Insert QR code
+                previewElement.innerHTML = data.qr_code;
+                
+                // Style the SVG to fit properly
+                const svg = previewElement.querySelector('svg');
+                if (svg) {
+                    svg.style.maxWidth = '100%';
+                    svg.style.height = 'auto';
+                    svg.style.display = 'block';
+                    svg.style.margin = '0 auto';
                 }
                 
+                // Show download section
                 const downloadSection = document.getElementById('downloadSection');
                 if (downloadSection) {
                     downloadSection.classList.remove('hidden');
-                    console.log('Download section shown');
                 }
                 
                 window.currentQrData = data;

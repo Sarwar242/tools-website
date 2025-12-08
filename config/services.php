@@ -35,4 +35,24 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Google AdSense Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure your Google AdSense settings here. After getting approved,
+    | update your .env file with your AdSense client ID and enable ads.
+    |
+    */
+    'adsense' => [
+        'enabled' => env('ADSENSE_ENABLED', false),
+        'client_id' => env('ADSENSE_CLIENT_ID', 'ca-pub-XXXXXXXXXXXXXXXX'),
+        'slots' => [
+            'auto' => env('ADSENSE_SLOT_AUTO', ''),
+            'horizontal' => env('ADSENSE_SLOT_HORIZONTAL', ''),
+            'sidebar' => env('ADSENSE_SLOT_SIDEBAR', ''),
+            'in_article' => env('ADSENSE_SLOT_IN_ARTICLE', ''),
+        ],
+    ],
+
 ];

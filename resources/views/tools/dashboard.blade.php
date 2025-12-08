@@ -64,15 +64,21 @@
         
         <!-- Categories -->
         <div class="flex justify-center mb-6">
-            <div class="inline-flex rounded-lg border border-gray-200 dark:border-gray-700">
-                <button class="category-btn active px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900 rounded-l-lg transition-colors" data-category="all">
+            <div class="inline-flex flex-wrap justify-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 p-2">
+                <button class="category-btn active px-4 py-2 text-sm font-medium text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900 rounded-lg transition-colors" data-category="all">
                     All Tools
                 </button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" data-category="generators">
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-lg transition-colors" data-category="generators">
                     Generators
                 </button>
-                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-r-lg transition-colors" data-category="web">
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-lg transition-colors" data-category="web">
                     Web Tools
+                </button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-lg transition-colors" data-category="developers">
+                    Developers
+                </button>
+                <button class="category-btn px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 rounded-lg transition-colors" data-category="text">
+                    Text Tools
                 </button>
             </div>
         </div>

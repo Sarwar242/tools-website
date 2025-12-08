@@ -55,10 +55,6 @@
                         <i class="fas fa-qrcode mr-2"></i>
                         Generate QR Code
                     </button>
-                    <button type="button" onclick="generateAdvancedQR()" class="btn-outline-primary w-full">
-                        <i class="fas fa-cogs mr-2"></i>
-                        Advanced Generator
-                    </button>
                 </div>
             </form>
 
@@ -90,8 +86,8 @@
         <div class="card p-6">
             <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Preview & Download</h2>
             
-            <div id="qrPreview" class="flex items-center justify-center h-64 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 mb-4">
-                <div class="text-center text-gray-500 dark:text-gray-400">
+            <div id="qrPreview" class="flex items-center justify-center min-h-64 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 mb-4 overflow-auto">
+                <div id="qrPlaceholder" class="text-center text-gray-500 dark:text-gray-400">
                     <i class="fas fa-qrcode text-4xl mb-2"></i>
                     <p>Your QR code will appear here</p>
                 </div>
@@ -111,7 +107,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <button type="button" onclick="shareQR()" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                    <button type="button" id="shareBtn" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
                         <i class="fas fa-share-alt mr-1"></i>Share QR Code
                     </button>
                 </div>
@@ -155,10 +151,11 @@ function fillTemplate(type, content) {
 
 // Download functions
 function downloadQR(format) {
-    if (!currentQrData) return;
-    
     const qrElement = document.querySelector('#qrPreview svg');
-    if (!qrElement) return;
+    if (!qrElement) {
+        alert('Please generate a QR code first');
+        return;
+    }
     
     if (format === 'svg') {
         const svgData = new XMLSerializer().serializeToString(qrElement);
@@ -168,31 +165,45 @@ function downloadQR(format) {
         const downloadLink = document.createElement('a');
         downloadLink.href = svgUrl;
         downloadLink.download = 'qrcode.svg';
+        document.body.appendChild(downloadLink);
         downloadLink.click();
+        document.body.removeChild(downloadLink);
         
         URL.revokeObjectURL(svgUrl);
     } else if (format === 'png') {
         const canvas = document.createElement('canvas');
+        const size = parseInt(document.getElementById('size').value) || 300;
+        canvas.width = size;
+        canvas.height = size;
         const ctx = canvas.getContext('2d');
+        
+        // White background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
+        
         const svgData = new XMLSerializer().serializeToString(qrElement);
+        const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+        const url = URL.createObjectURL(svgBlob);
         const img = new Image();
         
         img.onload = function() {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0, size, size);
             
             canvas.toBlob(function(blob) {
-                const url = URL.createObjectURL(blob);
+                const pngUrl = URL.createObjectURL(blob);
                 const downloadLink = document.createElement('a');
-                downloadLink.href = url;
+                downloadLink.href = pngUrl;
                 downloadLink.download = 'qrcode.png';
+                document.body.appendChild(downloadLink);
                 downloadLink.click();
-                URL.revokeObjectURL(url);
-            });
+                document.body.removeChild(downloadLink);
+                URL.revokeObjectURL(pngUrl);
+            }, 'image/png');
+            
+            URL.revokeObjectURL(url);
         };
         
-        img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        img.src = url;
     }
 }
 
@@ -213,57 +224,88 @@ function printQR() {
     printWindow.print();
 }
 
-function shareQR() {
-    if (navigator.share && currentQrData) {
-        navigator.share({
-            title: 'QR Code',
-            text: 'Generated QR Code',
-            url: window.location.href
-        });
+// Share QR Code
+document.getElementById('shareBtn')?.addEventListener('click', async function() {
+    const qrElement = document.querySelector('#qrPreview svg');
+    if (!qrElement) {
+        alert('Please generate a QR code first');
+        return;
     }
-}
-
-// Advanced QR Generator
-async function generateAdvancedQR() {
-    const form = document.getElementById('qrForm');
-    const formData = new FormData(form);
-    
-    // Add advanced options
-    formData.append('format', 'svg');
-    formData.append('error_correction', 'M');
-    formData.append('margin', '10');
-    formData.append('foreground_color', '#000000');
-    formData.append('background_color', '#ffffff');
-    
-    const submitBtn = form.querySelector('button[type="submit"]');
-    window.QRGenerator.setLoading(submitBtn, true);
     
     try {
-        const response = await fetch('/tools/qr-generator/advanced', {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-            },
-            body: formData
-        });
+        // Convert SVG to PNG blob
+        const canvas = document.createElement('canvas');
+        const size = 512; // Good quality for sharing
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
         
-        const data = await response.json();
+        // White background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, size, size);
         
-        if (data.success && data.qr_code) {
-            console.log('Advanced QR Code received:', data.qr_code.substring(0, 100) + '...');
-            document.getElementById('qrPreview').innerHTML = data.qr_code;
-            document.getElementById('downloadSection').classList.remove('hidden');
-            window.currentQrData = data;
-            window.ThemeManager.showNotification('Advanced QR Code generated successfully!', 'success');
-        } else {
-            console.error('Advanced QR Generation failed:', data);
-            window.ThemeManager.showNotification(data.error || 'Error generating QR code', 'error');
-        }
+        // Convert SVG to blob
+        const svgData = new XMLSerializer().serializeToString(qrElement);
+        const svgBlob = new Blob([svgData], {type: 'image/svg+xml;charset=utf-8'});
+        const url = URL.createObjectURL(svgBlob);
+        const img = new Image();
+        
+        img.onload = async function() {
+            ctx.drawImage(img, 0, 0, size, size);
+            URL.revokeObjectURL(url);
+            
+            // Convert canvas to blob
+            canvas.toBlob(async function(blob) {
+                if (navigator.share && navigator.canShare) {
+                    // Check if we can share files
+                    const file = new File([blob], 'qrcode.png', { type: 'image/png' });
+                    const shareData = {
+                        files: [file],
+                        title: 'QR Code',
+                        text: 'Check out this QR Code!'
+                    };
+                    
+                    if (navigator.canShare(shareData)) {
+                        try {
+                            await navigator.share(shareData);
+                            console.log('QR Code shared successfully');
+                        } catch (error) {
+                            console.log('Share cancelled or failed:', error);
+                            // Fallback: download instead
+                            downloadQRImage(blob);
+                        }
+                    } else {
+                        // Web Share API doesn't support files on this device
+                        downloadQRImage(blob);
+                    }
+                } else {
+                    // No Web Share API - download instead
+                    downloadQRImage(blob);
+                }
+            }, 'image/png');
+        };
+        
+        img.src = url;
     } catch (error) {
-        console.error('Advanced QR Generation error:', error);
-        window.ThemeManager.showNotification('Network error occurred', 'error');
-    } finally {
-        window.QRGenerator.setLoading(submitBtn, false);
+        console.error('Error sharing QR code:', error);
+        alert('Unable to share QR code. Please use the download button instead.');
+    }
+});
+
+function downloadQRImage(blob) {
+    const url = URL.createObjectURL(blob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+    downloadLink.download = 'qrcode.png';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+    
+    if (window.ThemeManager) {
+        window.ThemeManager.showNotification('QR Code downloaded! You can now share it manually.', 'success');
+    } else {
+        alert('QR Code downloaded!');
     }
 }
 </script>

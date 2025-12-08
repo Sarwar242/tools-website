@@ -31,6 +31,54 @@ class ToolsController extends Controller
                 'route' => 'tools.url-shortener',
                 'category' => 'web',
                 'popular' => true
+            ],
+            [
+                'name' => 'JSON Formatter',
+                'description' => 'Format, validate, and beautify JSON data',
+                'icon' => '📋',
+                'route' => 'tools.json-formatter',
+                'category' => 'developers',
+                'popular' => true
+            ],
+            [
+                'name' => 'Password Generator',
+                'description' => 'Generate strong, secure passwords instantly',
+                'icon' => '🔐',
+                'route' => 'tools.password-generator',
+                'category' => 'generators',
+                'popular' => true
+            ],
+            [
+                'name' => 'Base64 Encoder/Decoder',
+                'description' => 'Encode and decode Base64 strings',
+                'icon' => '🔄',
+                'route' => 'tools.base64-encoder',
+                'category' => 'developers',
+                'popular' => false
+            ],
+            [
+                'name' => 'Hash & Bcrypt Generator',
+                'description' => 'Generate Bcrypt, MD5, SHA-1, SHA-256, SHA-512 hashes',
+                'icon' => '🔏',
+                'route' => 'tools.hash-generator',
+                'category' => 'developers',
+                'popular' => true
+            ],
+            [
+                'name' => 'Text Case Converter',
+                'description' => 'Convert text to uppercase, lowercase, title case',
+                'icon' => '📝',
+                'route' => 'tools.text-case-converter',
+                'category' => 'text',
+                'popular' => false
+            ],
+            [
+                'name' => 'Sitemap Generator',
+                'description' => 'Generate XML sitemaps for better SEO',
+                'icon' => '🗺️',
+                'route' => 'tools.sitemap-generator',
+                'category' => 'web',
+                'popular' => true
             ]
         ];
 
@@ -210,6 +258,54 @@ class ToolsController extends Controller
         }
 
         return view('tools.url-analytics', compact('shortUrl'));
+    }
+
+    /**
+     * JSON Formatter
+     */
+    public function jsonFormatter()
+    {
+        return view('tools.json-formatter');
+    }
+
+    /**
+     * Password Generator
+     */
+    public function passwordGenerator()
+    {
+        return view('tools.password-generator');
+    }
+
+    /**
+     * Base64 Encoder/Decoder
+     */
+    public function base64Encoder()
+    {
+        return view('tools.base64-encoder');
+    }
+
+    /**
+     * Hash Generator
+     */
+    public function hashGenerator()
+    {
+        return view('tools.hash-generator');
+    }
+
+    /**
+     * Text Case Converter
+     */
+    public function textCaseConverter()
+    {
+        return view('tools.text-case-converter');
+    }
+
+    /**
+     * Sitemap Generator
+     */
+    public function sitemapGenerator()
+    {
+        return view('tools.sitemap-generator');
     }
 
     /**
