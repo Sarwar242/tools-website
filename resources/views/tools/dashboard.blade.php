@@ -147,14 +147,8 @@
         </div>
     </div>
 
-    <!-- Ad Zone -->
-    <div class="p-8 bg-gray-50 dark:bg-gray-800 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600">
-        <div class="text-center text-gray-500 dark:text-gray-400">
-            <i class="fas fa-ad text-2xl mb-2"></i>
-            <p>Advertisement Space</p>
-            <p class="text-sm">Support us by viewing ads</p>
-        </div>
-    </div>
+    <!-- Ad Space - Bottom -->
+    @include('partials.adsense')
 </div>
 
 <script>
