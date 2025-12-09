@@ -56,19 +56,64 @@ Route::get('/s/{code}', [ToolsController::class, 'redirectShortUrl'])->name('sho
 
 // Cache clearing route (for deployment troubleshooting)
 Route::get('/clear-cache-deploy', function () {
-    \Illuminate\Support\Facades\Artisan::call('route:clear');
-    \Illuminate\Support\Facades\Artisan::call('cache:clear');
-    \Illuminate\Support\Facades\Artisan::call('config:clear');
-    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    $results = [];
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('route:clear');
+        $results['route:clear'] = 'Done';
+    } catch (\Exception $e) {
+        $results['route:clear'] = 'Error: ' . $e->getMessage();
+    }
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+        $results['cache:clear'] = 'Done';
+    } catch (\Exception $e) {
+        $results['cache:clear'] = 'Error: ' . $e->getMessage();
+    }
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('config:clear');
+        $results['config:clear'] = 'Done';
+    } catch (\Exception $e) {
+        $results['config:clear'] = 'Error: ' . $e->getMessage();
+    }
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('view:clear');
+        $results['view:clear'] = 'Done';
+    } catch (\Exception $e) {
+        $results['view:clear'] = 'Error: ' . $e->getMessage();
+    }
+    
+    try {
+        \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+        $results['optimize:clear'] = 'Done';
+    } catch (\Exception $e) {
+        $results['optimize:clear'] = 'Error: ' . $e->getMessage();
+    }
+    
+    // Also try to delete cache files directly
+    $cacheFiles = [
+        'bootstrap/cache/routes-v7.php',
+        'bootstrap/cache/config.php',
+        'bootstrap/cache/services.php',
+    ];
+    
+    foreach ($cacheFiles as $file) {
+        if (file_exists(base_path($file))) {
+            @unlink(base_path($file));
+            $results[$file] = 'Deleted';
+        }
+    }
     
     return response()->json([
-        'message' => 'All caches cleared successfully!',
-        'commands' => [
-            'route:clear' => 'Done',
-            'cache:clear' => 'Done',
-            'config:clear' => 'Done',
-            'view:clear' => 'Done'
-        ],
-        'note' => 'You should remove or comment out this route after fixing the issue for security reasons.'
+        'message' => 'Cache clearing completed!',
+        'results' => $results,
+        'next_steps' => [
+            '1. Refresh your site',
+            '2. If it works, comment out this route in routes/web.php for security',
+            '3. Test all pages to ensure routes work'
+        ]
     ]);
 });

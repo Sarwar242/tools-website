@@ -43,11 +43,15 @@
                     </a>
                     
                     <div class="hidden md:flex ml-10 space-x-6">
-                        <a href="{{ route('tools.dashboard') }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                        @php
+                            try { $dashboardUrl = route('tools.dashboard'); } catch (\Exception $e) { $dashboardUrl = '/tools'; }
+                            try { $aboutUrl = route('about'); } catch (\Exception $e) { $aboutUrl = '/about'; }
+                        @endphp
+                        <a href="{{ $dashboardUrl }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
                             <i class="fas fa-home"></i>
                             <span>All Tools</span>
                         </a>
-                        <a href="{{ route('about') }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                        <a href="{{ $aboutUrl }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
                             <i class="fas fa-info-circle"></i>
                             <span>About</span>
                         </a>
@@ -65,11 +69,15 @@
             <!-- Mobile menu -->
             <div id="mobileMenu" class="hidden md:hidden">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="{{ route('tools.dashboard') }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                    @php
+                        try { $dashboardUrl = route('tools.dashboard'); } catch (\Exception $e) { $dashboardUrl = '/tools'; }
+                        try { $aboutUrl = route('about'); } catch (\Exception $e) { $aboutUrl = '/about'; }
+                    @endphp
+                    <a href="{{ $dashboardUrl }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
                         <i class="fas fa-home"></i>
                         <span>All Tools</span>
                     </a>
-                    <a href="{{ route('about') }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                    <a href="{{ $aboutUrl }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
                         <i class="fas fa-info-circle"></i>
                         <span>About</span>
                     </a>
@@ -99,19 +107,29 @@
                 
                 <div>
                     <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Popular Tools</h3>
+                    @php
+                        try { $qrUrl = route('tools.qr-generator'); } catch (\Exception $e) { $qrUrl = '/tools/qr-generator'; }
+                        try { $urlUrl = route('tools.url-shortener'); } catch (\Exception $e) { $urlUrl = '/tools/url-shortener'; }
+                        try { $jsonUrl = route('tools.json-formatter'); } catch (\Exception $e) { $jsonUrl = '/tools/json-formatter'; }
+                        try { $passUrl = route('tools.password-generator'); } catch (\Exception $e) { $passUrl = '/tools/password-generator'; }
+                    @endphp
                     <ul class="space-y-2">
-                        <li><a href="{{ route('tools.qr-generator') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">QR Code Generator</a></li>
-                        <li><a href="{{ route('tools.url-shortener') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">URL Shortener</a></li>
-                        <li><a href="{{ route('tools.json-formatter') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">JSON Formatter</a></li>
-                        <li><a href="{{ route('tools.password-generator') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Password Generator</a></li>
+                        <li><a href="{{ $qrUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">QR Code Generator</a></li>
+                        <li><a href="{{ $urlUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">URL Shortener</a></li>
+                        <li><a href="{{ $jsonUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">JSON Formatter</a></li>
+                        <li><a href="{{ $passUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Password Generator</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Company</h3>
+                    @php
+                        try { $aboutUrl = route('about'); } catch (\Exception $e) { $aboutUrl = '/about'; }
+                        try { $dashboardUrl = route('tools.dashboard'); } catch (\Exception $e) { $dashboardUrl = '/tools'; }
+                    @endphp
                     <ul class="space-y-2">
-                        <li><a href="{{ route('about') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">About Us</a></li>
-                        <li><a href="{{ route('tools.dashboard') }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">All Tools</a></li>
+                        <li><a href="{{ $aboutUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">About Us</a></li>
+                        <li><a href="{{ $dashboardUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">All Tools</a></li>
                         <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Privacy Policy</a></li>
                         <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Terms of Service</a></li>
                     </ul>
