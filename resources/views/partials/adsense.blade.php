@@ -1,45 +1,13 @@
-{{-- Google AdSense Placeholder --}}
-{{-- Replace with your actual AdSense code after approval --}}
-
+{{-- Google AdSense Ad Unit --}}
 @if(config('services.adsense.enabled', false))
     <div class="adsense-container my-6">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ config('services.adsense.client_id') }}"
-                crossorigin="anonymous"></script>
-        
-        @if($slot ?? '' === 'horizontal')
-            <!-- Horizontal Ad -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="{{ config('services.adsense.client_id') }}"
-                 data-ad-slot="{{ config('services.adsense.slots.horizontal') }}"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        @elseif($slot ?? '' === 'sidebar')
-            <!-- Sidebar Ad -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="{{ config('services.adsense.client_id') }}"
-                 data-ad-slot="{{ config('services.adsense.slots.sidebar') }}"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        @elseif($slot ?? '' === 'in-article')
-            <!-- In-article Ad -->
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="{{ config('services.adsense.client_id') }}"
-                 data-ad-slot="{{ config('services.adsense.slots.in_article') }}"></ins>
-        @else
-            <!-- Auto Ad -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="{{ config('services.adsense.client_id') }}"
-                 data-ad-slot="{{ config('services.adsense.slots.auto') }}"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-        @endif
-        
+        <!-- Google AdSense Ad -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="{{ config('services.adsense.client_id') }}"
+             data-ad-slot="{{ $slot ?? config('services.adsense.slots.auto') }}"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -50,7 +18,7 @@
         <div class="text-center text-gray-500 dark:text-gray-400">
             <i class="fas fa-ad text-3xl mb-2"></i>
             <p class="font-medium">Advertisement Space</p>
-            <p class="text-sm mt-1">{{ $slot ?? 'auto' }} ad will appear here</p>
+            <p class="text-sm mt-1">AdSense ad will appear here when enabled</p>
         </div>
     </div>
 @endif

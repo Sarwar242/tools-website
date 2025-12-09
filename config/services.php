@@ -41,17 +41,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | Configure your Google AdSense settings here. After getting approved,
-    | update your .env file with your AdSense client ID and enable ads.
+    | update your .env file with ADSENSE_ENABLED=true
     |
     */
     'adsense' => [
         'enabled' => env('ADSENSE_ENABLED', false),
-        'client_id' => env('ADSENSE_CLIENT_ID', 'ca-pub-XXXXXXXXXXXXXXXX'),
+        'client_id' => env('ADSENSE_CLIENT_ID', 'ca-pub-6179890788485964'),
         'slots' => [
-            'auto' => env('ADSENSE_SLOT_AUTO', ''),
-            'horizontal' => env('ADSENSE_SLOT_HORIZONTAL', ''),
-            'sidebar' => env('ADSENSE_SLOT_SIDEBAR', ''),
-            'in_article' => env('ADSENSE_SLOT_IN_ARTICLE', ''),
+            'auto' => '', // Leave empty for auto ads
         ],
     ],
 

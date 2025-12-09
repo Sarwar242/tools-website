@@ -32,6 +32,9 @@
         </div>
     </div>
 
+    <!-- Ad Space - Top -->
+    @include('partials.adsense')
+
     <!-- Popular Tools -->
     <div class="mb-12">
         <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Popular Tools</h2>
@@ -65,6 +68,9 @@
             @endforeach
         </div>
     </div>
+
+    <!-- Ad Space - Middle -->
+    @include('partials.adsense')
 
     <!-- All Tools -->
     <div class="mb-12">
@@ -115,6 +121,9 @@
             @endforeach
         </div>
     </div>
+
+    <!-- Ad Space - Before Features -->
+    @include('partials.adsense')
 
     <!-- Features -->
     <div class="bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl p-8 text-white text-center mb-12">

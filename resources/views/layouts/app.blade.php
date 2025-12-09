@@ -10,6 +10,9 @@
     <meta name="description" content="@yield('description', 'Free online tools for developers and professionals. QR code generator, URL shortener, and more useful utilities.')">
     <meta name="keywords" content="@yield('keywords', 'online tools, free tools, QR code generator, URL shortener, web utilities')">
     
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-6179890788485964">
+    
     <!-- Open Graph -->
     <meta property="og:title" content="@yield('title', 'ToolHub - Free Online Tools')">
     <meta property="og:description" content="@yield('description', 'Free online tools for developers and professionals.')">
