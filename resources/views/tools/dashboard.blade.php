@@ -50,7 +50,15 @@
                     </div>
                 </div>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">{{ $tool['description'] }}</p>
-                <a href="{{ route($tool['route']) }}" class="btn-primary w-full text-center">
+                @php
+                    try {
+                        $toolUrl = route($tool['route']);
+                    } catch (\Exception $e) {
+                        $toolUrl = '#';
+                        \Log::error('Route not found: ' . $tool['route']);
+                    }
+                @endphp
+                <a href="{{ $toolUrl }}" class="btn-primary w-full text-center">
                     Use Tool <i class="fas fa-arrow-right ml-1"></i>
                 </a>
             </div>
@@ -92,7 +100,15 @@
                     {{ $tool['name'] }}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">{{ $tool['description'] }}</p>
-                <a href="{{ route($tool['route']) }}" class="btn-outline-primary text-sm">
+                @php
+                    try {
+                        $toolUrl = route($tool['route']);
+                    } catch (\Exception $e) {
+                        $toolUrl = '#';
+                        \Log::error('Route not found: ' . $tool['route']);
+                    }
+                @endphp
+                <a href="{{ $toolUrl }}" class="btn-outline-primary text-sm">
                     Launch <i class="fas fa-external-link-alt ml-1"></i>
                 </a>
             </div>

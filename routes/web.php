@@ -53,3 +53,22 @@ Route::prefix('theme')->name('theme.')->group(function () {
 
 // Short URL redirect
 Route::get('/s/{code}', [ToolsController::class, 'redirectShortUrl'])->name('short-redirect');
+
+// Cache clearing route (for deployment troubleshooting)
+Route::get('/clear-cache-deploy', function () {
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    
+    return response()->json([
+        'message' => 'All caches cleared successfully!',
+        'commands' => [
+            'route:clear' => 'Done',
+            'cache:clear' => 'Done',
+            'config:clear' => 'Done',
+            'view:clear' => 'Done'
+        ],
+        'note' => 'You should remove or comment out this route after fixing the issue for security reasons.'
+    ]);
+});
