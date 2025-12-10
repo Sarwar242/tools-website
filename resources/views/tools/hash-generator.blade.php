@@ -28,14 +28,6 @@
             <i class="fas fa-cog mr-2"></i>Generate All Hashes
         </button>
         
-        <div id="bcryptStatus" class="mt-3 text-xs text-center hidden">
-            <span class="text-gray-500 dark:text-gray-400">
-                <i class="fas fa-circle-notch fa-spin mr-1"></i>Loading Bcrypt library...
-            </span>
-        </div>
-        <button id="retryBcryptBtn" class="mt-3 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors hidden" onclick="window.location.reload()">
-            <i class="fas fa-sync-alt mr-2"></i>Retry Loading Bcrypt
-        </button>
     </div>
 
     <!-- Hash Results -->
@@ -154,147 +146,62 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-
-<!-- Bcrypt.js library with integrity hash and fallback -->
-<script id="bcryptScript" 
-        src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js" 
-        integrity="sha512-rM1nQvhIuDR0rqanp6L0w/jl0L1lOimOzhwKVZIb7CgP+O3MQ+XMIhEwZMozYmGxfL8V1CtXiDK+HFl14pz+3A==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer"></script>
-
-<script>
-(function() {
-    // Enhanced bcrypt library loading with fallback support
-    let bcryptCheckAttempts = 0;
-    const maxAttempts = 10;
-    let fallbackLoaded = false;
-    
-    function loadFallbackBcrypt() {
-        if (fallbackLoaded) return;
-        fallbackLoaded = true;
-        
-        console.warn('⚠️ Primary bcrypt CDN failed, loading fallback...');
-        const fallbackScript = document.createElement('script');
-        fallbackScript.src = 'https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js';
-        fallbackScript.crossOrigin = 'anonymous';
-        fallbackScript.onload = function() {
-            console.log('✓ Bcrypt loaded from fallback CDN (jsDelivr)');
-            checkBcryptLoaded();
-        };
-        fallbackScript.onerror = function() {
-            console.error('✗ Fallback CDN also failed');
-            showBcryptError();
-        };
-        document.head.appendChild(fallbackScript);
-    }
-    
-    function showBcryptError() {
-        const statusDiv = document.getElementById('bcryptStatus');
-        const retryBtn = document.getElementById('retryBcryptBtn');
-        if (statusDiv) {
-            statusDiv.innerHTML = '<span class="text-red-600"><i class="fas fa-exclamation-triangle mr-1"></i>Bcrypt library failed to load. Please check your internet connection.</span>';
-            statusDiv.classList.remove('hidden');
-        }
-        if (retryBtn) {
-            retryBtn.classList.remove('hidden');
-        }
-    }
-    
-    function checkBcryptLoaded() {
-        bcryptCheckAttempts++;
-        const statusDiv = document.getElementById('bcryptStatus');
-        
-        // Check if bcrypt is loaded and functional
-        if (typeof bcrypt !== 'undefined' && typeof bcrypt.hashSync === 'function') {
-            console.log('✓ Bcrypt library loaded successfully');
-            if (statusDiv) statusDiv.classList.add('hidden');
-            return true;
-        } else if (bcryptCheckAttempts < maxAttempts) {
-            if (bcryptCheckAttempts === 1) {
-                console.log(`Checking bcrypt library availability (attempt ${bcryptCheckAttempts}/${maxAttempts})...`);
-            } else {
-                console.warn(`Bcrypt library not loaded yet (attempt ${bcryptCheckAttempts}/${maxAttempts}), retrying...`);
-            }
-            if (statusDiv) statusDiv.classList.remove('hidden');
-            setTimeout(checkBcryptLoaded, 300);
-            return false;
-        } else if (!fallbackLoaded) {
-            // Try fallback CDN after primary attempts exhausted
-            console.warn('Primary CDN attempts exhausted, trying fallback...');
-            loadFallbackBcrypt();
-            return false;
-        } else {
-            console.error('✗ Bcrypt library failed to load from all CDN sources');
-            showBcryptError();
-            return false;
-        }
-    }
-    
-    // Handle primary script loading errors
-    const primaryScript = document.getElementById('bcryptScript');
-    if (primaryScript) {
-        primaryScript.onerror = function() {
-            console.error('Primary bcrypt script failed to load');
-            loadFallbackBcrypt();
-        };
-    }
-    
-    // Start checking after DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(checkBcryptLoaded, 100);
-        });
-    } else {
-        setTimeout(checkBcryptLoaded, 100);
-    }
-})();
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const hashInput = document.getElementById('hashInput');
     const generateAllBtn = document.getElementById('generateAllBtn');
     const hashResults = document.getElementById('hashResults');
 
-    // Bcrypt implementation (simplified for client-side)
-    function generateBcrypt(password) {
-        // Check if bcrypt library is loaded
-        if (typeof bcrypt === 'undefined') {
-            console.error('Bcrypt library not loaded');
-            return 'Bcrypt library failed to load. Please refresh the page.';
-        }
-        
-        // Using bcrypt.js library
-        try {
-            const salt = bcrypt.genSaltSync(10); // Default Laravel cost factor
-            const hash = bcrypt.hashSync(password, salt);
-            return hash;
-        } catch (error) {
-            console.error('Bcrypt error:', error);
-            return 'Error: ' + error.message;
-        }
-    }
-
-    generateAllBtn.addEventListener('click', function() {
+    generateAllBtn.addEventListener('click', async function() {
         const input = hashInput.value;
         if (!input) {
             alert('Please enter text to hash');
             return;
         }
 
-        // Generate Bcrypt
-        const bcryptHash = generateBcrypt(input);
-        document.getElementById('bcryptOutput').textContent = bcryptHash;
-        
-        // Generate other hashes
-        document.getElementById('md5Output').textContent = CryptoJS.MD5(input).toString();
-        document.getElementById('sha1Output').textContent = CryptoJS.SHA1(input).toString();
-        document.getElementById('sha256Output').textContent = CryptoJS.SHA256(input).toString();
-        document.getElementById('sha512Output').textContent = CryptoJS.SHA512(input).toString();
+        // Disable button and show loading state
+        generateAllBtn.disabled = true;
+        generateAllBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
 
-        // Show results
-        hashResults.classList.remove('hidden');
-        hashResults.scrollIntoView({ behavior: 'smooth' });
+        try {
+            // Get CSRF token
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            // Call the API to generate hashes
+            const response = await fetch('/api/v1/hash', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ input: input })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Display all hashes
+                document.getElementById('bcryptOutput').textContent = data.data.hashes.bcrypt;
+                document.getElementById('md5Output').textContent = data.data.hashes.md5;
+                document.getElementById('sha1Output').textContent = data.data.hashes.sha1;
+                document.getElementById('sha256Output').textContent = data.data.hashes.sha256;
+                document.getElementById('sha512Output').textContent = data.data.hashes.sha512;
+
+                // Show results
+                hashResults.classList.remove('hidden');
+                hashResults.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Error: ' + (data.error || 'Failed to generate hashes'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to generate hashes. Please try again.');
+        } finally {
+            // Re-enable button
+            generateAllBtn.disabled = false;
+            generateAllBtn.innerHTML = '<i class="fas fa-cog mr-2"></i>Generate All Hashes';
+        }
     });
 
     // Copy functionality
