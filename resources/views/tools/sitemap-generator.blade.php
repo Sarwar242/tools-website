@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function generateSitemap(baseUrl, pages, changefreq, priority) {
         const today = new Date().toISOString().split('T')[0];
         
-        let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+        let xml = '{{ '<' }}?xml version="1.0" encoding="UTF-8"?>\n';
         xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
         
         pages.forEach(page => {
