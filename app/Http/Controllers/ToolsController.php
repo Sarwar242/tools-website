@@ -79,6 +79,14 @@ class ToolsController extends Controller
                 'route' => 'tools.sitemap-generator',
                 'category' => 'web',
                 'popular' => true
+            ],
+            [
+                'name' => 'URL Encoder/Decoder',
+                'description' => 'Encode and decode URL strings for safe transmission',
+                'icon' => '🔗',
+                'route' => 'tools.url-encoder',
+                'category' => 'developers',
+                'popular' => false
             ]
         ];
 
@@ -306,6 +314,14 @@ class ToolsController extends Controller
     public function sitemapGenerator()
     {
         return view('tools.sitemap-generator');
+    }
+
+    /**
+     * URL Encoder/Decoder
+     */
+    public function urlEncoder()
+    {
+        return view('tools.url-encoder');
     }
 
     /**

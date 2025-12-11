@@ -43,6 +43,9 @@ Route::prefix('tools')->name('tools.')->group(function () {
     
     // Sitemap Generator
     Route::get('/sitemap-generator', [ToolsController::class, 'sitemapGenerator'])->name('sitemap-generator');
+    
+    // URL Encoder/Decoder
+    Route::get('/url-encoder', [ToolsController::class, 'urlEncoder'])->name('url-encoder');
 });
 
 // Theme Routes
