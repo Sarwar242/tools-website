@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Encode and decode URL strings instantly</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Encode -->
         <div class="card p-6">
@@ -103,6 +106,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Bottom Ad -->
+    @include('partials.adsense')
 
     <!-- Info -->
     <div class="mt-8 card p-6">

@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Convert text between different cases instantly</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <!-- Input -->
     <div class="card p-6 mb-6">
         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

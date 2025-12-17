@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Generate strong, secure passwords instantly</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <!-- Generator -->
     <div class="card p-6 mb-6">
         <!-- Password Display -->

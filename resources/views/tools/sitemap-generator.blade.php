@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Generate XML sitemaps for better SEO</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <!-- Form -->
     <div class="card p-6 mb-6">
         <form id="sitemapForm">

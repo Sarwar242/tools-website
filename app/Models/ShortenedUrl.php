@@ -28,7 +28,7 @@ class ShortenedUrl extends Model
     /**
      * Generate a unique short code
      */
-    public static function generateUniqueCode($length = 6)
+    public static function generateUniqueCode($length = 4)
     {
         do {
             $code = Str::random($length);

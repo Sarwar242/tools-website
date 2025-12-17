@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Format, validate, and beautify your JSON data</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Input Section -->
         <div class="card p-6">

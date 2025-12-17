@@ -194,8 +194,8 @@ class ToolsController extends Controller
             if ($existing) {
                 $shortCode = $existing->short_code;
             } else {
-                // Generate new short code
-                $shortCode = ShortenedUrl::generateUniqueCode(6);
+                // Generate new short code (4 characters for shorter URLs)
+                $shortCode = ShortenedUrl::generateUniqueCode(4);
                 
                 // Get page title (optional)
                 $title = $this->getPageTitle($originalUrl);

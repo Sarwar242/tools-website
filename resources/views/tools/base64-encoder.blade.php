@@ -14,6 +14,9 @@
         <p class="text-gray-600 dark:text-gray-400">Encode and decode Base64 strings instantly</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Encode -->
         <div class="card p-6">

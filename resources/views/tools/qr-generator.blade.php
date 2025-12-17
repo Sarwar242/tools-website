@@ -14,6 +14,9 @@
         <p class="text-lg text-gray-600 dark:text-gray-400">Create custom QR codes for any text, URL, or data instantly</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Generator Form -->
         <div class="card p-6">

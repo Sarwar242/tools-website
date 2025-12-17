@@ -14,6 +14,9 @@
         <p class="text-lg text-gray-600 dark:text-gray-400">Transform long URLs into short, shareable links</p>
     </div>
 
+    <!-- Top Ad -->
+    @include('partials.adsense')
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <!-- Shortener Form -->
         <div class="card p-6">
