@@ -136,6 +136,209 @@
             <p>Advertisement Space</p>
         </div>
     </div>
+
+    <!-- Educational Content Section -->
+    <div class="mt-12 space-y-8">
+        <!-- What is QR Code -->
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">What is a QR Code?</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                A QR (Quick Response) code is a two-dimensional barcode that can be scanned by smartphones and QR code readers to quickly access information. 
+                Originally developed in 1994 for tracking automotive parts, QR codes have become ubiquitous in modern digital marketing, payments, and information sharing.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">
+                Unlike traditional barcodes that store data horizontally, QR codes store information both horizontally and vertically, allowing them to hold 
+                significantly more data (up to 4,296 alphanumeric characters). This makes them perfect for encoding URLs, contact information, WiFi credentials, 
+                payment details, and much more.
+            </p>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Popular Use Cases for QR Codes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-globe text-primary-600 mr-2"></i>Website URLs
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Direct users to your website, landing pages, or promotional campaigns instantly. Perfect for print materials, business cards, and advertising.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-wifi text-primary-600 mr-2"></i>WiFi Access
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Share WiFi credentials without revealing passwords. Guests can scan and connect instantly without typing complex passwords.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-address-card text-primary-600 mr-2"></i>Contact Information
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Share vCard details that can be imported directly into contacts. Great for networking events and business cards.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-credit-card text-primary-600 mr-2"></i>Payment Processing
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Enable quick payments through digital wallets, cryptocurrencies, or payment apps. Common in restaurants and retail.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-ticket-alt text-primary-600 mr-2"></i>Event Tickets
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Digital tickets for concerts, movies, conferences, and transportation. Scannable for quick entry and validation.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                        <i class="fas fa-share-alt text-primary-600 mr-2"></i>Social Media
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Link to social profiles, encourage app downloads, or promote campaigns. Boost your social media presence effortlessly.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">QR Code Best Practices</h2>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Test Before Printing</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Always test your QR code with multiple devices and apps before printing or publishing. Ensure it scans correctly and directs to the right destination.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Choose the Right Size</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Minimum size should be 2cm x 2cm (0.8" x 0.8") for reliable scanning. Larger QR codes are easier to scan from a distance.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Ensure Good Contrast</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Use dark colors on light backgrounds. Black on white provides the best scanning reliability. Avoid low-contrast color combinations.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Add a Call-to-Action</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Include text like "Scan for more info" or "Scan to visit website" near your QR code to encourage scanning and improve engagement.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-check text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Keep URLs Short</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            Shorter URLs create simpler QR codes that scan faster and more reliably. Consider using a URL shortener for long links.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Are QR codes free to use?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Yes! QR codes are completely free to generate and use. There are no licensing fees or restrictions. Our QR code generator is 100% free with no limitations.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Do QR codes expire?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Static QR codes (like those generated here) never expire. They contain the data directly and will work forever. However, if the URL or content 
+                        you've encoded becomes unavailable, the QR code will scan but won't lead anywhere useful.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can I customize the appearance of my QR code?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Our generator allows you to customize the size and margin of your QR code. While we currently focus on reliability with classic black-and-white codes, 
+                        you can use external image editors to add colors or logos while maintaining the QR code's scannability.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">What file format should I use?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        PNG format is recommended for digital use and printing. It provides lossless compression and supports transparency. For very large prints, 
+                        consider generating a larger size (800-1000px) to maintain quality.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is my data secure?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Absolutely! Our QR code generator processes everything in your browser. No data is sent to our servers or stored anywhere. Your information 
+                        remains completely private and secure.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="{{ route('tools.url-shortener') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-link text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">URL Shortener</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Shorten URLs for QR codes</div>
+                    </div>
+                </a>
+                <a href="{{ route('tools.base64-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-code text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">Base64 Encoder</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Encode data for QR codes</div>
+                    </div>
+                </a>
+                <a href="{{ route('tools.dashboard') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-tools text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">All Tools</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Explore more free tools</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

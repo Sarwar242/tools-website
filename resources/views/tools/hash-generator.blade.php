@@ -239,4 +239,129 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<!-- Educational Content -->
+<div class="max-w-4xl mx-auto mt-12 space-y-8">
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">What is a Hash Function?</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+            A hash function is a one-way cryptographic algorithm that converts input data of any size into a fixed-size string of characters, 
+            called a hash or digest. Hash functions are designed to be irreversible - you cannot recreate the original data from the hash. 
+            Even a tiny change in input produces a completely different hash value.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+            Our free hash generator supports multiple algorithms including MD5, SHA-1, SHA-256, SHA-512, and more. These hashes are essential 
+            for password storage, data integrity verification, digital signatures, and blockchain technology.
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Hash Algorithm Comparison</h2>
+        <div class="space-y-4">
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">MD5 (128-bit)</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Fast but cryptographically broken. Use only for non-security purposes like checksums.</p>
+                <div class="flex items-center text-xs">
+                    <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded">Not Recommended for Security</span>
+                </div>
+            </div>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">SHA-1 (160-bit)</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Deprecated for security. Still used in legacy systems and Git version control.</p>
+                <div class="flex items-center text-xs">
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded">Deprecated</span>
+                </div>
+            </div>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">SHA-256 (256-bit)</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Industry standard for security. Used in SSL certificates, Bitcoin, and password hashing.</p>
+                <div class="flex items-center text-xs">
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded">Recommended</span>
+                </div>
+            </div>
+            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">SHA-512 (512-bit)</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Stronger variant of SHA-256 with longer hash. Preferred for maximum security.</p>
+                <div class="flex items-center text-xs">
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded">Highly Secure</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Common Use Cases</h2>
+        <div class="space-y-3">
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Password Storage:</strong> Hash passwords before storing in databases (use bcrypt/Argon2 for production)</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>File Integrity:</strong> Verify downloads haven't been corrupted or tampered with</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Digital Signatures:</strong> Verify authenticity of documents and software</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Blockchain:</strong> Generate unique identifiers for blockchain transactions</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Data Deduplication:</strong> Identify duplicate files without comparing full content</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can I reverse a hash to get the original data?</h3>
+                <p class="text-gray-700 dark:text-gray-300">No. Hash functions are one-way by design. You cannot decrypt or reverse a hash back to its original input.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Which hash algorithm should I use?</h3>
+                <p class="text-gray-700 dark:text-gray-300">For security purposes, use SHA-256 or SHA-512. Avoid MD5 and SHA-1 as they have known vulnerabilities.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Are hashes unique?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Practically yes, but theoretically collisions (two inputs producing the same hash) can occur. Modern algorithms like SHA-256 make this astronomically unlikely.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is this tool secure for sensitive data?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes! All hashing happens in your browser. No data is transmitted to our servers. However, remember that hashes can be looked up in rainbow tables.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="{{ route('tools.password-generator') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-lock text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">Password Generator</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Create strong passwords</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.base64-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-code text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">Base64 Encoder</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Encode/decode data</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.dashboard') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-tools text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">All Tools</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Explore more tools</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 @endsection

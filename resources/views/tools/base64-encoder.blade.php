@@ -230,4 +230,116 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<!-- Educational Content -->
+<div class="max-w-4xl mx-auto mt-12 space-y-8">
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">What is Base64 Encoding?</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Base64 is a binary-to-text encoding scheme that converts binary data into ASCII string format. It's commonly used to transmit binary 
+            data over text-based protocols like email, URLs, and JSON, which don't support binary data directly. The encoding uses 64 ASCII characters 
+            (A-Z, a-z, 0-9, +, /) to represent binary data.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+            Our free Base64 encoder/decoder tool works entirely in your browser, ensuring your data stays private and secure. It's perfect for 
+            developers working with APIs, data transmission, authentication tokens, and embedding images in HTML/CSS.
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Common Use Cases</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex items-start">
+                <i class="fas fa-image text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Embed Images in HTML/CSS</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Convert images to data URIs for inline embedding, reducing HTTP requests and improving load times.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-key text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Authentication Tokens</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Encode credentials and tokens for HTTP Basic Authentication and JWT tokens in API requests.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-envelope text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Email Attachments</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Transfer binary files via email using MIME protocols that require text-based encoding.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-database text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Store Binary in Text</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Save binary data in JSON, XML, or text databases that only support text formats.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">How Base64 Works</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Base64 encoding converts every 3 bytes (24 bits) of binary data into 4 ASCII characters (6 bits each). This results in approximately 
+            33% increase in data size, which is the trade-off for text compatibility.
+        </p>
+        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <p class="font-mono text-sm text-gray-700 dark:text-gray-300 mb-2"><strong>Example:</strong></p>
+            <p class="font-mono text-sm text-gray-700 dark:text-gray-300">Original Text: <span class="text-primary-600">"Hello"</span></p>
+            <p class="font-mono text-sm text-gray-700 dark:text-gray-300">Base64 Encoded: <span class="text-green-600">"SGVsbG8="</span></p>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is Base64 encryption?</h3>
+                <p class="text-gray-700 dark:text-gray-300">No! Base64 is encoding, not encryption. It's easily reversible and provides no security. Never use it to protect sensitive data.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Why does Base64 end with "=" symbols?</h3>
+                <p class="text-gray-700 dark:text-gray-300">The "=" is padding to ensure the output length is a multiple of 4 characters, which Base64 requires.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can I encode images?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes, but use a specialized tool for file encoding. This tool is designed for text data. For images, look for Base64 image encoders.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is my data secure?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes! All encoding/decoding happens in your browser. Nothing is sent to our servers or stored anywhere.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="{{ route('tools.hash-generator') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-hashtag text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">Hash Generator</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Generate cryptographic hashes</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.url-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-link text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">URL Encoder</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Encode URL strings</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.dashboard') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-tools text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">All Tools</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Explore more tools</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 @endsection

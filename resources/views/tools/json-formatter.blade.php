@@ -292,4 +292,125 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<!-- Educational Content -->
+<div class="max-w-4xl mx-auto mt-12 space-y-8">
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">What is JSON?</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+            JSON (JavaScript Object Notation) is a lightweight data-interchange format that's easy for humans to read and write, and easy for machines 
+            to parse and generate. It's the most popular format for transmitting data between web servers and clients, APIs, configuration files, and 
+            data storage.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+            Our JSON formatter helps you beautify minified JSON, validate syntax errors, and make your data readable. Whether you're debugging APIs, 
+            configuring applications, or analyzing data structures, this tool makes JSON work easier.
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Common JSON Use Cases</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex items-start">
+                <i class="fas fa-code text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">API Development</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Format and validate API responses for debugging RESTful services and GraphQL endpoints.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-cog text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Configuration Files</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Edit and beautify config files for Node.js, VS Code, package.json, and other applications.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-database text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Data Storage</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Structure and validate data for NoSQL databases like MongoDB, CouchDB, and Firebase.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-exchange-alt text-2xl text-primary-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Data Exchange</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Transfer data between different programming languages and platforms with a universal format.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">JSON Formatting Features</h2>
+        <div class="space-y-3">
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Beautify/Pretty Print:</strong> Convert minified JSON into readable, indented format</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Minify/Compress:</strong> Remove whitespace to reduce file size for production</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Syntax Validation:</strong> Instantly detect and highlight JSON syntax errors</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                <span class="text-gray-700 dark:text-gray-300"><strong>Copy & Download:</strong> Quick actions to save formatted JSON</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is my JSON data secure?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes! All formatting happens in your browser. Your JSON data never leaves your computer and is not sent to any server.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">What's the difference between beautify and minify?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Beautify adds indentation and line breaks for readability. Minify removes all unnecessary whitespace to reduce file size.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can this tool fix invalid JSON?</h3>
+                <p class="text-gray-700 dark:text-gray-300">No, but it will show you exactly where syntax errors occur so you can fix them manually. Common errors include missing commas, quotes, or brackets.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is there a size limit?</h3>
+                <p class="text-gray-700 dark:text-gray-300">The tool can handle very large JSON files (several MB), but extremely large files may slow down your browser.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="{{ route('tools.base64-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-code text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">Base64 Encoder</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Encode JSON data</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.hash-generator') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-hashtag text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">Hash Generator</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Hash JSON strings</div>
+                </div>
+            </a>
+            <a href="{{ route('tools.dashboard') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                <i class="fas fa-tools text-2xl text-primary-600 mr-3"></i>
+                <div>
+                    <div class="font-semibold text-gray-900 dark:text-gray-100">All Tools</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">Explore more tools</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 @endsection

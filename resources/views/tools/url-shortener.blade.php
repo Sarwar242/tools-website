@@ -126,6 +126,130 @@
             <p>Advertisement Space</p>
         </div>
     </div>
+
+    <!-- Educational Content -->
+    <div class="mt-12 space-y-8">
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">What is a URL Shortener?</h2>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+                A URL shortener is a tool that converts long, complex URLs into short, manageable links that are easier to share and remember. 
+                Our free URL shortener creates compact links perfect for social media posts, email campaigns, text messages, and print materials.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300">
+                Short URLs not only look cleaner but also provide click tracking and analytics, helping you understand how many people engage with your links. 
+                They're essential for digital marketing, social media management, and any scenario where character count matters.
+            </p>
+        </div>
+
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Benefits of URL Shortening</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                    <i class="fas fa-chart-line text-2xl text-primary-600 mr-3 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Track Click Analytics</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Monitor how many people click your links. Perfect for measuring campaign success and user engagement.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-share-alt text-2xl text-primary-600 mr-3 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Social Media Friendly</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Save precious characters on Twitter and other platforms with character limits while maintaining professional appearance.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-eye text-2xl text-primary-600 mr-3 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Clean & Professional</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Replace ugly long URLs with clean, branded short links that build trust and improve click-through rates.</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <i class="fas fa-qrcode text-2xl text-primary-600 mr-3 mt-1"></i>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">QR Code Compatible</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Shorter URLs create simpler QR codes that scan faster and more reliably on mobile devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Common Use Cases</h2>
+            <div class="space-y-3">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                    <span class="text-gray-700 dark:text-gray-300"><strong>Social Media Marketing:</strong> Share links on Twitter, Instagram, Facebook, and LinkedIn</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                    <span class="text-gray-700 dark:text-gray-300"><strong>Email Campaigns:</strong> Create trackable links for newsletters and email marketing</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                    <span class="text-gray-700 dark:text-gray-300"><strong>SMS Marketing:</strong> Fit links in text messages without eating up character count</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                    <span class="text-gray-700 dark:text-gray-300"><strong>Print Materials:</strong> Add easy-to-type URLs to business cards, flyers, and posters</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                    <span class="text-gray-700 dark:text-gray-300"><strong>Affiliate Marketing:</strong> Mask long affiliate links with clean, trustworthy short URLs</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is this URL shortener free?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Yes! Our URL shortening service is completely free with no hidden costs or limitations.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Do shortened URLs expire?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">No, our shortened URLs never expire and will continue to redirect to your original URL indefinitely.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can I track clicks on my shortened URLs?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Yes! Each shortened URL includes click tracking. You can see the total number of clicks in your recent URLs list.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Are shortened URLs safe?</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Our service simply redirects to your original URL. We don't inject any code or tracking beyond the click counter. Always verify the destination before sharing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-6">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="{{ route('tools.qr-generator') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-qrcode text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">QR Code Generator</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Create QR codes for your short URLs</div>
+                    </div>
+                </a>
+                <a href="{{ route('tools.base64-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-code text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">Base64 Encoder</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Encode URL parameters</div>
+                    </div>
+                </a>
+                <a href="{{ route('tools.dashboard') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
+                    <i class="fas fa-tools text-2xl text-primary-600 mr-3"></i>
+                    <div>
+                        <div class="font-semibold text-gray-900 dark:text-gray-100">All Tools</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Explore more free tools</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

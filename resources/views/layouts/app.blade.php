@@ -54,6 +54,14 @@
                             <i class="fas fa-home"></i>
                             <span>All Tools</span>
                         </a>
+                        <a href="https://sarwar.com.bd" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                            <i class="fas fa-user"></i>
+                            <span>Portfolio</span>
+                        </a>
+                        <a href="https://blog.sarwar.com.bd" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                        </a>
                         <a href="{{ $aboutUrl }}" class="flex items-center space-x-1 text-gray-700 dark:text-gray-300 hover:text-primary-500 px-3 py-2 text-sm font-medium transition-colors">
                             <i class="fas fa-info-circle"></i>
                             <span>About</span>
@@ -79,6 +87,14 @@
                     <a href="{{ $dashboardUrl }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
                         <i class="fas fa-home"></i>
                         <span>All Tools</span>
+                    </a>
+                    <a href="https://sarwar.com.bd" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        <i class="fas fa-user"></i>
+                        <span>Portfolio</span>
+                    </a>
+                    <a href="https://blog.sarwar.com.bd" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        <i class="fas fa-blog"></i>
+                        <span>Blog</span>
                     </a>
                     <a href="{{ $aboutUrl }}" class="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary-500 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium transition-colors">
                         <i class="fas fa-info-circle"></i>
@@ -125,21 +141,27 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Company</h3>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Links</h3>
                     @php
                         try { $aboutUrl = route('about'); } catch (\Exception $e) { $aboutUrl = '/about'; }
                         try { $dashboardUrl = route('tools.dashboard'); } catch (\Exception $e) { $dashboardUrl = '/tools'; }
                     @endphp
                     <ul class="space-y-2">
+                        <li><a href="https://sarwar.com.bd" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Portfolio</a></li>
+                        <li><a href="https://blog.sarwar.com.bd" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Blog</a></li>
                         <li><a href="{{ $aboutUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">About Us</a></li>
                         <li><a href="{{ $dashboardUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">All Tools</a></li>
-                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div class="text-center mb-4">
+                    <strong class="text-gray-700 dark:text-gray-300">Explore More:</strong>
+                    <a href="https://sarwar.com.bd" class="mx-2 text-primary-600 hover:text-primary-500 transition-colors">🏠 Portfolio</a>
+                    <a href="https://webtools.sarwar.com.bd" class="mx-2 text-primary-600 hover:text-primary-500 transition-colors">🛠️ Free Tools</a>
+                    <a href="https://blog.sarwar.com.bd" class="mx-2 text-primary-600 hover:text-primary-500 transition-colors">📝 Blog</a>
+                </div>
                 <p class="text-center text-gray-600 dark:text-gray-400">
                     &copy; {{ date('Y') }} ToolHub. All rights reserved.
                 </p>

@@ -323,4 +323,103 @@ document.addEventListener('DOMContentLoaded', function() {
     generateBtn.click();
 });
 </script>
+
+<!-- Educational Content -->
+<div class="max-w-4xl mx-auto mt-12 space-y-8">
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Why Use Strong Passwords?</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">
+            Strong passwords are your first line of defense against cyber attacks. Weak passwords can be cracked in seconds using modern computers, 
+            while strong passwords with mixed characters can take millions of years to break. Our password generator creates cryptographically secure 
+            random passwords that protect your accounts from hackers.
+        </p>
+        <p class="text-gray-700 dark:text-gray-300">
+            With data breaches happening daily, using unique, strong passwords for each account is essential. A strong password should be at least 
+            12 characters long and include uppercase letters, lowercase letters, numbers, and special symbols.
+        </p>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Password Security Best Practices</h2>
+        <div class="space-y-4">
+            <div class="flex items-start">
+                <i class="fas fa-shield-alt text-2xl text-green-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Use Unique Passwords</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Never reuse passwords across multiple accounts. If one site is breached, all your accounts become vulnerable.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-lock text-2xl text-green-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Use a Password Manager</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Store passwords securely in a password manager like LastPass, 1Password, or Bitwarden instead of writing them down.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-key text-2xl text-green-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Enable Two-Factor Authentication</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Add an extra layer of security with 2FA. Even if your password is compromised, 2FA keeps your account safe.</p>
+                </div>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-sync text-2xl text-green-600 mr-3 mt-1"></i>
+                <div>
+                    <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Change Passwords Regularly</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Update critical passwords every 3-6 months, especially for banking, email, and work accounts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Password Strength Guide</h2>
+        <div class="space-y-3">
+            <div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-times-circle text-red-600 mr-2"></i>
+                    <span class="font-semibold text-red-800 dark:text-red-300">Weak: 8 characters, lowercase only</span>
+                </div>
+                <p class="text-sm text-red-700 dark:text-red-400">Can be cracked in seconds. Never use for important accounts.</p>
+            </div>
+            <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i>
+                    <span class="font-semibold text-yellow-800 dark:text-yellow-300">Medium: 10 characters, mixed case and numbers</span>
+                </div>
+                <p class="text-sm text-yellow-700 dark:text-yellow-400">Better but still vulnerable. Suitable for low-risk accounts only.</p>
+            </div>
+            <div class="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-check-circle text-green-600 mr-2"></i>
+                    <span class="font-semibold text-green-800 dark:text-green-300">Strong: 16+ characters, all character types</span>
+                </div>
+                <p class="text-sm text-green-700 dark:text-green-400">Excellent security. Would take billions of years to crack. Recommended for all accounts.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Is this password generator secure?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes! Passwords are generated entirely in your browser using JavaScript's cryptographic random number generator. No passwords are sent to our servers or stored anywhere.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">How long should my password be?</h3>
+                <p class="text-gray-700 dark:text-gray-300">We recommend at least 16 characters for maximum security. Longer passwords are exponentially harder to crack.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Should I include symbols?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Yes! Including symbols significantly increases password complexity and makes it much harder to crack through brute force attacks.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Can I save these passwords?</h3>
+                <p class="text-gray-700 dark:text-gray-300">Use the copy button to save passwords to your password manager or secure note. Never store passwords in plain text files or emails.</p>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
