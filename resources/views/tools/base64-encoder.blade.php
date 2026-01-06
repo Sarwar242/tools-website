@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Base64 Encoder/Decoder - ToolHub')
-@section('description', 'Encode and decode Base64 strings. Free online Base64 encoder and decoder tool.')
+@section('title', 'Free Base64 Encoder & Decoder - Encode/Decode Online | ToolHub')
+@section('description', 'Encode and decode Base64 strings instantly. Free online Base64 encoder/decoder for text, URLs, and data. Perfect for API development, authentication tokens, and data transmission. Secure and private.')
+@section('keywords', 'Base64 encoder, Base64 decoder, encode Base64, decode Base64, Base64 tool, Base64 converter, Base64 online, Base64 encode decode')
 
 @section('content')
 <div class="max-w-7xl mx-auto">

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Password Generator - ToolHub')
-@section('description', 'Generate strong, secure passwords with customizable options. Free online password generator.')
+@section('title', 'Secure Password Generator - Create Strong Random Passwords Free | ToolHub')
+@section('description', 'Generate ultra-secure random passwords instantly. Customize length (8-128 characters) and include uppercase, lowercase, numbers, and symbols. 100% free, secure, and private. No data stored.')
+@section('keywords', 'password generator, strong password, secure password, random password, password creator, generate password, password maker, secure password generator, random password generator')
 
 @section('content')
 <div class="max-w-4xl mx-auto">

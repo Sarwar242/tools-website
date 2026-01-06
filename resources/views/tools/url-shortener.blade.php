@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'URL Shortener - ToolHub')
-@section('description', 'Shorten long URLs and create custom short links. Track clicks and manage your shortened URLs easily.')
+@section('title', 'Free URL Shortener - Create Short Links with Click Tracking | ToolHub')
+@section('description', 'Shorten long URLs instantly with our free URL shortener. Track clicks, create clean links for social media, email campaigns, and marketing. No registration required. Get analytics for every link.')
+@section('keywords', 'URL shortener, short link, link shortener, shorten URL, tiny URL, free URL shortener, link tracker, click tracking, short URL, URL analytics')
 
 @section('content')
 <div class="max-w-4xl mx-auto">

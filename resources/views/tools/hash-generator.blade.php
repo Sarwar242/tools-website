@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Hash & Bcrypt Generator - ToolHub')
-@section('description', 'Generate MD5, SHA-1, SHA-256, SHA-512, and Bcrypt hashes. Free online hash generator for Laravel developers and security.')
+@section('title', 'Free Hash Generator - MD5, SHA-256, SHA-512, Bcrypt Online | ToolHub')
+@section('description', 'Generate cryptographic hashes instantly with MD5, SHA-1, SHA-256, SHA-512, and Bcrypt algorithms. Free online hash generator for password hashing, file integrity, and security. Perfect for developers.')
+@section('keywords', 'hash generator, MD5 generator, SHA256 generator, SHA512 generator, bcrypt generator, hash online, cryptographic hash, password hash, hash calculator')
 
 @section('content')
 <div class="max-w-4xl mx-auto">

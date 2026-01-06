@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'JSON Formatter & Validator - ToolHub')
-@section('description', 'Format, validate, and beautify JSON data. Free online JSON formatter with syntax highlighting and error detection.')
+@section('title', 'Free JSON Formatter - Beautify, Validate & Minify JSON Online | ToolHub')
+@section('description', 'Format and validate JSON data instantly. Beautify minified JSON, validate syntax errors, and minify JSON for production. Free online JSON formatter with syntax highlighting. Perfect for API development.')
+@section('keywords', 'JSON formatter, JSON validator, beautify JSON, minify JSON, JSON pretty print, format JSON, JSON beautifier, validate JSON, JSON syntax checker, JSON tool')
 
 @section('content')
 <div class="max-w-7xl mx-auto">

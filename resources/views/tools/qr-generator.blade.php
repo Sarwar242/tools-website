@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'QR Code Generator - ToolHub')
-@section('description', 'Generate QR codes for text, URLs, emails, WiFi passwords and more. Free online QR code generator with customizable size and download options.')
+@section('title', 'Free QR Code Generator - Create Custom QR Codes Online | ToolHub')
+@section('description', 'Generate high-quality QR codes instantly for free. Customize size, format, and margins. Perfect for URLs, WiFi, contact info, business cards, and marketing materials. No sign-up required.')
+@section('keywords', 'QR code generator, free QR code, create QR code, QR code maker, custom QR code, QR code online, generate QR code, barcode generator, QR code creator')
 
 @section('content')
 <div class="max-w-4xl mx-auto">
