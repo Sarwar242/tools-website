@@ -14,8 +14,8 @@
     <meta name="google-adsense-account" content="ca-pub-6179890788485964">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="@yield('og_title', '@yield('title', 'ToolHub - Free Online Tools')')">
-    <meta property="og:description" content="@yield('og_description', '@yield('description', 'Free online tools for developers and professionals.')')">
+    <meta property="og:title" content="@yield('og_title', @yield('title', 'ToolHub - Free Online Tools'))">
+    <meta property="og:description" content="@yield('og_description', @yield('description', 'Free online tools for developers and professionals.'))">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request()->url() }}">
     <meta property="og:site_name" content="ToolHub">
@@ -23,8 +23,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('twitter_title', '@yield('title', 'ToolHub - Free Online Tools')')">
-    <meta name="twitter:description" content="@yield('twitter_description', '@yield('description', 'Free online tools for developers and professionals.')')">
+    <meta name="twitter:title" content="@yield('twitter_title', @yield('title', 'ToolHub - Free Online Tools'))">
+    <meta name="twitter:description" content="@yield('twitter_description', @yield('description', 'Free online tools for developers and professionals.'))">
     <meta name="twitter:image" content="@yield('twitter_image', asset('favicon.svg'))">
     
     <!-- Canonical URL -->
