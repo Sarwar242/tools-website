@@ -10,6 +10,10 @@
     <meta name="description" content="@yield('description', 'Free online tools for developers and professionals. QR code generator, URL shortener, and more useful utilities.')">
     <meta name="keywords" content="@yield('keywords', 'online tools, free tools, QR code generator, URL shortener, web utilities')">
     
+    <!-- Google Search Console Verification -->
+    <!-- TODO: Replace YOUR_VERIFICATION_CODE with actual code from Google Search Console -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+    
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-6179890788485964">
     
@@ -131,7 +135,7 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center space-x-2 text-xl font-bold text-primary-500 mb-4">
                         <i class="fas fa-tools"></i>
@@ -159,16 +163,29 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Links</h3>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Company</h3>
                     @php
                         try { $aboutUrl = route('about'); } catch (\Exception $e) { $aboutUrl = '/about'; }
                         try { $dashboardUrl = route('tools.dashboard'); } catch (\Exception $e) { $dashboardUrl = '/tools'; }
+                        try { $contactUrl = route('contact'); } catch (\Exception $e) { $contactUrl = '/contact'; }
                     @endphp
                     <ul class="space-y-2">
+                        <li><a href="{{ $aboutUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">About Us</a></li>
+                        <li><a href="{{ $contactUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Contact</a></li>
                         <li><a href="https://sarwar.com.bd" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Portfolio</a></li>
                         <li><a href="https://blog.sarwar.com.bd" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Blog</a></li>
-                        <li><a href="{{ $aboutUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">About Us</a></li>
-                        <li><a href="{{ $dashboardUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">All Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Legal</h3>
+                    @php
+                        try { $privacyUrl = route('privacy-policy'); } catch (\Exception $e) { $privacyUrl = '/privacy-policy'; }
+                        try { $termsUrl = route('terms-of-service'); } catch (\Exception $e) { $termsUrl = '/terms-of-service'; }
+                    @endphp
+                    <ul class="space-y-2">
+                        <li><a href="{{ $privacyUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="{{ $termsUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>

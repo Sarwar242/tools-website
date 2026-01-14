@@ -9,6 +9,11 @@ Route::get('/', [ToolsController::class, 'dashboard']);
 // About page
 Route::view('/about', 'about')->name('about');
 
+// Legal & Policy pages
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+Route::view('/terms-of-service', 'terms-of-service')->name('terms-of-service');
+Route::view('/contact', 'contact')->name('contact');
+
 // Tools routes
 Route::prefix('tools')->name('tools.')->group(function () {
     // Dashboard - all tools
@@ -56,6 +61,44 @@ Route::prefix('theme')->name('theme.')->group(function () {
 
 // Short URL redirect
 Route::get('/s/{code}', [ToolsController::class, 'redirectShortUrl'])->name('short-redirect');
+
+// Sitemap
+Route::get('/sitemap.xml', function () {
+    $sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
+    $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    
+    // Define all URLs with their priorities and change frequencies
+    $urls = [
+        ['loc' => url('/'), 'priority' => '1.0', 'changefreq' => 'daily'],
+        ['loc' => route('tools.dashboard'), 'priority' => '1.0', 'changefreq' => 'daily'],
+        ['loc' => route('about'), 'priority' => '0.8', 'changefreq' => 'monthly'],
+        ['loc' => route('privacy-policy'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+        ['loc' => route('terms-of-service'), 'priority' => '0.6', 'changefreq' => 'monthly'],
+        ['loc' => route('contact'), 'priority' => '0.7', 'changefreq' => 'monthly'],
+        ['loc' => route('tools.qr-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.url-shortener'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.json-formatter'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.password-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.base64-encoder'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.hash-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.text-case-converter'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.url-encoder'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('tools.sitemap-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+    ];
+    
+    foreach ($urls as $url) {
+        $sitemap .= '<url>';
+        $sitemap .= '<loc>' . htmlspecialchars($url['loc']) . '</loc>';
+        $sitemap .= '<lastmod>' . date('Y-m-d') . '</lastmod>';
+        $sitemap .= '<changefreq>' . $url['changefreq'] . '</changefreq>';
+        $sitemap .= '<priority>' . $url['priority'] . '</priority>';
+        $sitemap .= '</url>';
+    }
+    
+    $sitemap .= '</urlset>';
+    
+    return response($sitemap, 200)->header('Content-Type', 'application/xml');
+})->name('sitemap');
 
 // Cache clearing route (for deployment troubleshooting)
 Route::get('/clear-cache-deploy', function () {
