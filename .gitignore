@@ -25,3 +25,7 @@ Thumbs.db
 /Portfolio
 /blog-app
 
+# Docker
+/docker/entrypoint.sh.bak
+/docker/*.log
+
