@@ -264,7 +264,7 @@
                     <div>
                         <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Keep URLs Short</h3>
                         <p class="text-gray-700 dark:text-gray-300">
-                            Shorter URLs create simpler QR codes that scan faster and more reliably. Consider using a URL shortener for long links.
+                            Shorter URLs create simpler QR codes that scan faster and more reliably. Try to use concise URLs when possible.
                         </p>
                     </div>
                 </div>

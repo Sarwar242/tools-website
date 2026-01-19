@@ -7,8 +7,8 @@
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/x-icon">
     
     <title>@yield('title', 'ToolHub - Free Online Tools')</title>
-    <meta name="description" content="@yield('description', 'Free online tools for developers and professionals. QR code generator, URL shortener, and more useful utilities.')">
-    <meta name="keywords" content="@yield('keywords', 'online tools, free tools, QR code generator, URL shortener, web utilities')">
+    <meta name="description" content="@yield('description', 'Free online tools for developers and professionals. QR code generator, JSON formatter, password generator, and more useful utilities.')">
+    <meta name="keywords" content="@yield('keywords', 'online tools, free tools, QR code generator, JSON formatter, password generator, web utilities')">
     
     <!-- Google Search Console Verification -->
     <!-- TODO: Replace YOUR_VERIFICATION_CODE with actual code from Google Search Console -->
@@ -152,7 +152,7 @@
                         <span>ToolHub</span>
                     </div>
                     <p class="text-gray-600 dark:text-gray-400 max-w-md">
-                        Free online tools for developers and professionals. Create QR codes, shorten URLs, and access more useful utilities.
+                        Free online tools for developers and professionals. Create QR codes, format JSON, generate passwords, and access more useful utilities.
                     </p>
                 </div>
                 

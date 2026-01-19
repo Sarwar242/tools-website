@@ -162,7 +162,6 @@
             <li>Business interruption</li>
             <li>Security breaches from generated passwords or hashes</li>
             <li>Errors in tool outputs</li>
-            <li>Malicious content accessed through shortened URLs</li>
         </ul>
 
         <h2>11. Indemnification</h2>
@@ -209,7 +208,6 @@
         <ul>
             <li><strong>Rate Limiting:</strong> Maximum requests per minute/hour/day</li>
             <li><strong>Data Size Limits:</strong> Maximum file sizes or input lengths</li>
-            <li><strong>Storage Limits:</strong> URL shortener may have retention limits</li>
         </ul>
         <p>
             Excessive or abusive usage may result in temporary or permanent suspension of access.

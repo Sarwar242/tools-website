@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'ToolHub - Free Online Tools')
-@section('description', 'Free online tools for developers and professionals. QR code generator, URL shortener, and more useful utilities.')
+@section('description', 'Free online tools for developers and professionals. QR code generator, JSON formatter, password generator, and more useful utilities.')
 
 @section('content')
 <div class="max-w-7xl mx-auto">
@@ -12,7 +12,7 @@
         </div>
         <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Welcome to ToolHub</h1>
         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Your one-stop destination for free online tools. Generate QR codes, shorten URLs, and access more useful utilities to boost your productivity.
+            Your one-stop destination for free online tools. Generate QR codes, format JSON, create secure passwords, and access more useful utilities to boost your productivity.
         </p>
         
         <!-- Stats -->

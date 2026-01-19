@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About ToolHub - Free Online Tools')
-@section('description', 'ToolHub provides free online tools for developers, designers, and everyday users. Generate QR codes, shorten URLs, format JSON, and more.')
+@section('description', 'ToolHub provides free online tools for developers, designers, and everyday users. Generate QR codes, format JSON, generate passwords, encode Base64, and more.')
 
 @section('content')
 <div class="max-w-7xl mx-auto">
