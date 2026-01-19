@@ -24,12 +24,6 @@ Route::prefix('tools')->name('tools.')->group(function () {
     Route::post('/qr-generator', [ToolsController::class, 'generateQr'])->name('generate-qr');
     Route::post('/qr-generator/advanced', [App\Http\Controllers\QRController::class, 'generateAdvanced'])->name('generate-qr-advanced');
     
-    // URL Shortener
-    Route::get('/url-shortener', [ToolsController::class, 'urlShortener'])->name('url-shortener');
-    Route::post('/url-shortener', [ToolsController::class, 'shortenUrl'])->name('shorten-url');
-    
-    // URL Analytics (for future feature)
-    Route::get('/url-analytics/{code}', [ToolsController::class, 'urlAnalytics'])->name('url-analytics');
     
     // JSON Formatter
     Route::get('/json-formatter', [ToolsController::class, 'jsonFormatter'])->name('json-formatter');
@@ -59,8 +53,6 @@ Route::prefix('theme')->name('theme.')->group(function () {
     Route::post('/color', [App\Http\Controllers\ThemeController::class, 'changeColor'])->name('color');
 });
 
-// Short URL redirect
-Route::get('/s/{code}', [ToolsController::class, 'redirectShortUrl'])->name('short-redirect');
 
 // Sitemap
 Route::get('/sitemap.xml', function () {
@@ -76,7 +68,6 @@ Route::get('/sitemap.xml', function () {
         ['loc' => route('terms-of-service'), 'priority' => '0.6', 'changefreq' => 'monthly'],
         ['loc' => route('contact'), 'priority' => '0.7', 'changefreq' => 'monthly'],
         ['loc' => route('tools.qr-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-        ['loc' => route('tools.url-shortener'), 'priority' => '0.9', 'changefreq' => 'weekly'],
         ['loc' => route('tools.json-formatter'), 'priority' => '0.9', 'changefreq' => 'weekly'],
         ['loc' => route('tools.password-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
         ['loc' => route('tools.base64-encoder'), 'priority' => '0.9', 'changefreq' => 'weekly'],

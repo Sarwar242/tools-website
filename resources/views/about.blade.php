@@ -135,7 +135,6 @@
                 <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                     <li class="flex items-start">
                         <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-3"></i>
-                        <span><strong>URL Shortener:</strong> Create short, shareable links</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-3"></i>

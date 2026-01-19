@@ -25,14 +25,6 @@ class ToolsController extends Controller
                 'popular' => true
             ],
             [
-                'name' => 'URL Shortener',
-                'description' => 'Shorten long URLs and track clicks',
-                'icon' => '🔗',
-                'route' => 'tools.url-shortener',
-                'category' => 'web',
-                'popular' => true
-            ],
-            [
                 'name' => 'JSON Formatter',
                 'description' => 'Format, validate, and beautify JSON data',
                 'icon' => '📋',
@@ -169,104 +161,6 @@ class ToolsController extends Controller
         }
     }
 
-    /**
-     * URL Shortener
-     */
-    public function urlShortener()
-    {
-        return view('tools.url-shortener');
-    }
-
-    public function shortenUrl(Request $request)
-    {
-        $request->validate([
-            'url' => 'required|url|max:2048'
-        ]);
-
-        $originalUrl = $request->input('url');
-
-        try {
-            // Check if URL already exists (optional feature)
-            $existing = ShortenedUrl::where('original_url', $originalUrl)
-                                   ->where('is_active', true)
-                                   ->first();
-
-            if ($existing) {
-                $shortCode = $existing->short_code;
-            } else {
-                // Generate new short code (4 characters for shorter URLs)
-                $shortCode = ShortenedUrl::generateUniqueCode(4);
-                
-                // Get page title (optional)
-                $title = $this->getPageTitle($originalUrl);
-
-                // Create shortened URL
-                ShortenedUrl::create([
-                    'short_code' => $shortCode,
-                    'original_url' => $originalUrl,
-                    'title' => $title,
-                    'ip_address' => $request->ip(),
-                    'user_agent' => $request->userAgent()
-                ]);
-            }
-
-            $shortUrl = url("/s/{$shortCode}");
-
-            // Log usage
-            $this->logToolUsage('url_shortener', $request, [
-                'url_length' => strlen($originalUrl),
-                'domain' => parse_url($originalUrl, PHP_URL_HOST)
-            ]);
-
-            return response()->json([
-                'success' => true,
-                'original_url' => $originalUrl,
-                'short_url' => $shortUrl,
-                'short_code' => $shortCode,
-                'clicks' => $existing ? $existing->click_count : 0
-            ]);
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'error' => 'Failed to shorten URL: ' . $e->getMessage()
-            ], 500);
-        }
-    }
-
-    /**
-     * Redirect short URL
-     */
-    public function redirectShortUrl($code)
-    {
-        $shortUrl = ShortenedUrl::where('short_code', $code)
-                                ->active()
-                                ->first();
-
-        if (!$shortUrl) {
-            abort(404, 'Short URL not found or expired');
-        }
-
-        // Increment click count
-        $shortUrl->incrementClicks(request()->ip(), request()->userAgent());
-
-        // Redirect to original URL
-        return redirect($shortUrl->original_url);
-    }
-
-    /**
-     * Get URL analytics (for future premium feature)
-     */
-    public function urlAnalytics($code)
-    {
-        $shortUrl = ShortenedUrl::where('short_code', $code)->first();
-
-        if (!$shortUrl) {
-            abort(404);
-        }
-
-        return view('tools.url-analytics', compact('shortUrl'));
-    }
 
     /**
      * JSON Formatter

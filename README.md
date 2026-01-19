@@ -20,7 +20,6 @@ A professional, monetization-ready platform offering 8+ free online tools for de
 ### Available Tools
 
 1. **QR Code Generator** - Create custom QR codes with templates
-2. **URL Shortener** - Shorten URLs with click tracking
 3. **JSON Formatter** - Format, validate, and minify JSON
 4. **Password Generator** - Generate strong, secure passwords
 5. **Base64 Encoder/Decoder** - Convert between text and Base64

@@ -10,7 +10,7 @@
 ### 1. Sitemap Generation
 - ✅ `php artisan sitemap:generate` command implemented
 - ✅ Sitemap file generated: `public/sitemap.xml`
-- ✅ 15 URLs included (homepage, tools, legal pages)
+- ✅ 14 URLs included (homepage, 8 tools, legal pages)
 - ✅ robots.txt updated with sitemap reference
 - ✅ Dynamic sitemap route available at `/sitemap.xml`
 

@@ -31,7 +31,6 @@
         </p>
         <ul>
             <li>QR Code Generator</li>
-            <li>URL Shortener</li>
             <li>JSON Formatter & Validator</li>
             <li>Password Generator</li>
             <li>Base64 Encoder/Decoder</li>
@@ -83,7 +82,7 @@
             You retain all ownership rights to content you input into our tools. By using our Services, you grant us a limited, non-exclusive, royalty-free license to process your content solely to provide the Services.
         </p>
         <p>
-            For example, when you use our URL Shortener, we store your URL data to provide the shortening service. We do not claim ownership of your URLs.
+            For example, when you use our tools, we may temporarily process your data to provide the service. We do not claim ownership of your data.
         </p>
 
         <h3>4.3 Attribution</h3>
@@ -148,7 +147,6 @@
         <ul>
             <li><strong>Password Generator:</strong> While we generate strong passwords, we cannot guarantee absolute security. Use at your own discretion.</li>
             <li><strong>Hash Generator:</strong> Cryptographic outputs are provided as-is. We are not responsible for misuse or security breaches.</li>
-            <li><strong>URL Shortener:</strong> We are not responsible for the content of shortened URLs or their availability.</li>
             <li><strong>QR Codes:</strong> We are not responsible for how QR codes are used or where they redirect.</li>
         </ul>
 
@@ -234,7 +232,7 @@
 
         <h3>16.2 Dispute Resolution Process</h3>
         <p>
-            If you have any concerns or disputes about the Services, please contact us first at <strong>contact@sarwar.com.bd</strong>. We will attempt to resolve disputes informally and in good faith.
+            If you have any concerns or disputes about the Services, please contact us first at <strong>info@sarwar.com.bd</strong>. We will attempt to resolve disputes informally and in good faith.
         </p>
 
         <h2>17. Changes to Terms of Service</h2>
@@ -266,7 +264,7 @@
         </p>
         <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg mt-4">
             <p><strong>ToolHub - Free Online Tools</strong></p>
-            <p><strong>Email:</strong> contact@sarwar.com.bd</p>
+            <p><strong>Email:</strong> info@sarwar.com.bd</p>
             <p><strong>Website:</strong> <a href="https://webtools.sarwar.com.bd" class="text-blue-600 hover:text-blue-500">webtools.sarwar.com.bd</a></p>
             <p><strong>Portfolio:</strong> <a href="https://sarwar.com.bd" class="text-blue-600 hover:text-blue-500">sarwar.com.bd</a></p>
         </div>

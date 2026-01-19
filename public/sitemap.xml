@@ -1,91 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://webtools.sarwar.com.bd</loc>
+    <loc>http://localhost</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools</loc>
+    <loc>http://localhost/tools</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/about</loc>
+    <loc>http://localhost/about</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/privacy-policy</loc>
+    <loc>http://localhost/privacy-policy</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/terms-of-service</loc>
+    <loc>http://localhost/terms-of-service</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/contact</loc>
+    <loc>http://localhost/contact</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/qr-generator</loc>
+    <loc>http://localhost/tools/qr-generator</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/url-shortener</loc>
+    <loc>http://localhost/tools/json-formatter</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/json-formatter</loc>
+    <loc>http://localhost/tools/password-generator</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/password-generator</loc>
+    <loc>http://localhost/tools/base64-encoder</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/base64-encoder</loc>
+    <loc>http://localhost/tools/hash-generator</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/hash-generator</loc>
+    <loc>http://localhost/tools/text-case-converter</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/text-case-converter</loc>
+    <loc>http://localhost/tools/url-encoder</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://webtools.sarwar.com.bd/tools/url-encoder</loc>
-    <lastmod>2026-01-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://webtools.sarwar.com.bd/tools/sitemap-generator</loc>
+    <loc>http://localhost/tools/sitemap-generator</loc>
     <lastmod>2026-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

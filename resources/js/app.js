@@ -173,68 +173,10 @@ window.QRGenerator = {
     }
 };
 
-// URL Shortener
-window.URLShortener = {
-    init() {
-        this.bindEvents();
-    },
-    
-    bindEvents() {
-        const form = document.getElementById('urlForm');
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.shortenURL();
-            });
-        }
-    },
-    
-    async shortenURL() {
-        const form = document.getElementById('urlForm');
-        const formData = new FormData(form);
-        const submitBtn = form.querySelector('button[type="submit"]');
-        
-        window.QRGenerator.setLoading(submitBtn, true);
-        
-        try {
-            const response = await fetch('/tools/url-shortener', {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-                },
-                body: formData
-            });
-            
-            const data = await response.json();
-            
-            if (data.success) {
-                document.getElementById('urlResult').innerHTML = `
-                    <div class="card p-4">
-                        <h5 class="font-semibold text-gray-900 dark:text-gray-100">Shortened URL:</h5>
-                        <div class="flex items-center gap-2 mt-2">
-                            <input type="text" value="${data.short_url}" readonly class="form-input flex-1">
-                            <button onclick="navigator.clipboard.writeText('${data.short_url}')" class="btn-outline-primary">Copy</button>
-                        </div>
-                    </div>
-                `;
-                window.ThemeManager.showNotification('URL shortened successfully!', 'success');
-            } else {
-                window.ThemeManager.showNotification(data.error || 'Error shortening URL', 'error');
-            }
-        } catch (error) {
-            console.error('URL Shortening error:', error);
-            window.ThemeManager.showNotification('Network error occurred', 'error');
-        } finally {
-            window.QRGenerator.setLoading(submitBtn, false);
-        }
-    }
-};
-
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     window.ThemeManager.init();
     window.QRGenerator.init();
-    window.URLShortener.init();
 });
 
 // Auto-detect system theme on first visit

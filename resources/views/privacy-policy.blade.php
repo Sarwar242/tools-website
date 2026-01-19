@@ -30,7 +30,7 @@
         <h3>2.1 Information You Provide</h3>
         <p>We may collect the following information when you use our tools:</p>
         <ul>
-            <li><strong>Tool Usage Data:</strong> When you use tools like URL Shortener, we store the URLs you submit and their shortened versions.</li>
+            <li><strong>Tool Usage Data:</strong> We collect anonymous usage statistics to improve our services.</li>
             <li><strong>Contact Information:</strong> If you contact us, we may collect your name, email address, and message content.</li>
             <li><strong>Feedback:</strong> Any feedback or suggestions you provide through our contact forms.</li>
         </ul>
@@ -47,7 +47,6 @@
         <p>Different tools collect different types of data:</p>
         <ul>
             <li><strong>QR Code Generator:</strong> Text, URLs, or data you input (processed client-side, not stored on our servers)</li>
-            <li><strong>URL Shortener:</strong> Original URLs and shortened URLs (stored in our database)</li>
             <li><strong>Password Generator:</strong> No data stored; passwords generated client-side</li>
             <li><strong>JSON Formatter:</strong> No data stored; processing done client-side</li>
             <li><strong>Base64 Encoder:</strong> No data stored; encoding done client-side</li>
@@ -124,7 +123,6 @@
             We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy:
         </p>
         <ul>
-            <li><strong>URL Shortener Data:</strong> Stored indefinitely unless you request deletion</li>
             <li><strong>Analytics Data:</strong> Retained according to Google Analytics retention settings (typically 26 months)</li>
             <li><strong>Contact Forms:</strong> Stored for up to 2 years or until resolved</li>
             <li><strong>Log Files:</strong> Retained for up to 90 days</li>
@@ -143,7 +141,7 @@
             <li><strong>Data Portability:</strong> Request transfer of your data to another service</li>
         </ul>
         <p>
-            To exercise any of these rights, please contact us at: <strong>contact@sarwar.com.bd</strong>
+            To exercise any of these rights, please contact us at: <strong>info@sarwar.com.bd</strong>
         </p>
 
         <h2>9. Children's Privacy</h2>
@@ -200,7 +198,7 @@
         </p>
         <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg mt-4">
             <p><strong>ToolHub - Free Online Tools</strong></p>
-            <p><strong>Email:</strong> contact@sarwar.com.bd</p>
+            <p><strong>Email:</strong> info@sarwar.com.bd</p>
             <p><strong>Website:</strong> <a href="https://webtools.sarwar.com.bd" class="text-blue-600 hover:text-blue-500">webtools.sarwar.com.bd</a></p>
             <p><strong>Portfolio:</strong> <a href="https://sarwar.com.bd" class="text-blue-600 hover:text-blue-500">sarwar.com.bd</a></p>
         </div>

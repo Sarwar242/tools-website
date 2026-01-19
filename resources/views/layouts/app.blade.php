@@ -160,13 +160,11 @@
                     <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">Popular Tools</h3>
                     @php
                         try { $qrUrl = route('tools.qr-generator'); } catch (\Exception $e) { $qrUrl = '/tools/qr-generator'; }
-                        try { $urlUrl = route('tools.url-shortener'); } catch (\Exception $e) { $urlUrl = '/tools/url-shortener'; }
                         try { $jsonUrl = route('tools.json-formatter'); } catch (\Exception $e) { $jsonUrl = '/tools/json-formatter'; }
                         try { $passUrl = route('tools.password-generator'); } catch (\Exception $e) { $passUrl = '/tools/password-generator'; }
                     @endphp
                     <ul class="space-y-2">
                         <li><a href="{{ $qrUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">QR Code Generator</a></li>
-                        <li><a href="{{ $urlUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">URL Shortener</a></li>
                         <li><a href="{{ $jsonUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">JSON Formatter</a></li>
                         <li><a href="{{ $passUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Password Generator</a></li>
                     </ul>

@@ -37,7 +37,6 @@ class GenerateSitemap extends Command
             ['loc' => route('terms-of-service'), 'priority' => '0.6', 'changefreq' => 'monthly'],
             ['loc' => route('contact'), 'priority' => '0.7', 'changefreq' => 'monthly'],
             ['loc' => route('tools.qr-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
-            ['loc' => route('tools.url-shortener'), 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['loc' => route('tools.json-formatter'), 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['loc' => route('tools.password-generator'), 'priority' => '0.9', 'changefreq' => 'weekly'],
             ['loc' => route('tools.base64-encoder'), 'priority' => '0.9', 'changefreq' => 'weekly'],

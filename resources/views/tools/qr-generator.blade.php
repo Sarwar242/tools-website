@@ -316,13 +316,6 @@
         <div class="card p-6">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">Related Tools</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a href="{{ route('tools.url-shortener') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
-                    <i class="fas fa-link text-2xl text-primary-600 mr-3"></i>
-                    <div>
-                        <div class="font-semibold text-gray-900 dark:text-gray-100">URL Shortener</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-400">Shorten URLs for QR codes</div>
-                    </div>
-                </a>
                 <a href="{{ route('tools.base64-encoder') }}" class="flex items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary-500 transition-colors">
                     <i class="fas fa-code text-2xl text-primary-600 mr-3"></i>
                     <div>

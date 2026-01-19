@@ -2,9 +2,8 @@
 
 ## 📱 Platform Overview
 
-**ToolHub** is a free online tools platform offering 8+ developer and professional utilities:
+**ToolHub** is a free online tools platform offering 8 developer and professional utilities:
 - QR Code Generator
-- URL Shortener
 - JSON Formatter
 - Password Generator
 - Base64 Encoder/Decoder
@@ -35,15 +34,15 @@
 
 After months of development, I'm thrilled to share a platform I built to help developers, designers, and digital professionals work more efficiently.
 
-✨ What's Available:
+✨ 8 Essential Tools Available:
 • QR Code Generator (with sharing & download)
-• URL Shortener & Encoder/Decoder
 • JSON Formatter & Validator
 • Secure Password Generator
 • Base64 Encoder/Decoder
 • Hash & Bcrypt Generator (Laravel-optimized)
 • Text Case Converter
 • Sitemap Generator
+• URL Encoder/Decoder
 
 🎨 Features:
 ✅ 100% Free - No registration required
@@ -83,11 +82,13 @@ Here's what makes it different:
 
 🛠️ Current toolkit includes:
 • QR Code Generator
-• URL & Base64 Encoding/Decoding
-• JSON Formatting
+• JSON Formatter & Validator
 • Secure Password Generation
+• Base64 Encoding/Decoding
 • Hash & Bcrypt Generation
-• And more...
+• URL Encoding/Decoding
+• Text Case Converter
+• Sitemap Generator
 
 Perfect for developers, marketers, designers, and anyone who needs quick, reliable tools.
 
@@ -165,9 +166,8 @@ What would you build differently? I'd love to hear your thoughts!
 ```
 🚀 Just launched ToolHub - Free online developer tools!
 
-✨ 9 essential utilities:
+✨ 8 essential utilities:
 • QR Code Generator
-• URL Shortener
 • JSON Formatter
 • Password Generator
 • Hash/Bcrypt Generator
@@ -214,11 +214,11 @@ So I built ToolHub - a collection of 9 essential dev tools that:
 3/5 Current tools:
 
 🔹 QR Code Generator (with share/download)
-🔹 URL Shortener & Encoder
-🔹 JSON Formatter
+🔹 JSON Formatter & Validator
 🔹 Password Generator
 🔹 Base64 Encoder/Decoder
 🔹 Hash & Bcrypt Generator
+🔹 URL Encoder/Decoder
 🔹 Text Case Converter
 🔹 Sitemap Generator
 

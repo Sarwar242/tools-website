@@ -29,8 +29,8 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Email</h3>
-                        <a href="mailto:contact@sarwar.com.bd" class="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
-                            contact@sarwar.com.bd
+                        <a href="mailto:info@sarwar.com.bd" class="text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">
+                            info@sarwar.com.bd
                         </a>
                         <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">We typically respond within 24-48 hours</p>
                     </div>
@@ -127,7 +127,7 @@
                 </div>
                 <div>
                     <h4 class="font-semibold text-gray-900 dark:text-white mb-1">How can I report a bug?</h4>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Email us at contact@sarwar.com.bd with details about the issue.</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Email us at info@sarwar.com.bd with details about the issue.</p>
                 </div>
             </div>
         </div>
