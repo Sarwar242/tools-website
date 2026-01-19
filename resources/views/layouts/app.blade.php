@@ -12,7 +12,7 @@
     
     <!-- Google Search Console Verification -->
     <!-- TODO: Replace YOUR_VERIFICATION_CODE with actual code from Google Search Console -->
-    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+    <meta name="google-site-verification" content="HiKDwdlkMtBKu-NaWV3bmwWTDhnYjaefxQn_rrkQHq4" />
     
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-6179890788485964">
