@@ -145,8 +145,8 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8">
+                <div class="lg:col-span-3">
                     <div class="flex items-center space-x-2 text-xl font-bold text-primary-500 mb-4">
                         <i class="fas fa-tools"></i>
                         <span>ToolHub</span>
