@@ -135,10 +135,15 @@
                 <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                     <li class="flex items-start">
                         <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-3"></i>
+                        <span><strong>QR Code Generator:</strong> Create custom QR codes instantly</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-3"></i>
                         <span><strong>Sitemap Generator:</strong> Generate XML sitemaps for SEO</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check text-primary-600 dark:text-primary-400 mt-1 mr-3"></i>
+                        <span><strong>URL Encoder/Decoder:</strong> Encode and decode URLs</span>
                     </li>
                 </ul>
             </div>
