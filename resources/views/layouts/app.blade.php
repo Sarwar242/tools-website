@@ -145,8 +145,8 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                <div class="col-span-1 md:col-span-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
                     <div class="flex items-center space-x-2 text-xl font-bold text-primary-500 mb-4">
                         <i class="fas fa-tools"></i>
                         <span>ToolHub</span>
@@ -162,11 +162,13 @@
                         try { $qrUrl = route('tools.qr-generator'); } catch (\Exception $e) { $qrUrl = '/tools/qr-generator'; }
                         try { $jsonUrl = route('tools.json-formatter'); } catch (\Exception $e) { $jsonUrl = '/tools/json-formatter'; }
                         try { $passUrl = route('tools.password-generator'); } catch (\Exception $e) { $passUrl = '/tools/password-generator'; }
+                        try { $base64Url = route('tools.base64-encoder'); } catch (\Exception $e) { $base64Url = '/tools/base64-encoder'; }
                     @endphp
                     <ul class="space-y-2">
                         <li><a href="{{ $qrUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">QR Code Generator</a></li>
                         <li><a href="{{ $jsonUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">JSON Formatter</a></li>
                         <li><a href="{{ $passUrl }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Password Generator</a></li>
+                        <li><a href="{{ $base64Url }}" class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">Base64 Encoder</a></li>
                     </ul>
                 </div>
                 
