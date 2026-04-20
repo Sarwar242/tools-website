@@ -1,4 +1,6 @@
 # Use PHP 8.4 FPM image
+FROM node:20 AS node
+
 FROM php:8.3-fpm
 
 # Set working directory
@@ -22,9 +24,19 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/bin/npm /usr/local/bin/npm
+COPY --from=node /usr/local/bin/npx /usr/local/bin/npx
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+
+RUN ln -sf /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
+    && ln -sf /usr/local/lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
 
 # Copy PHP custom config if exists
 COPY ./docker/php/local.ini /usr/local/etc/php/conf.d/local.ini
+COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Copy application code
 COPY . .
@@ -47,4 +59,5 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 EXPOSE 9000
 
 # Start PHP-FPM
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["php-fpm"]
